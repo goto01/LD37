@@ -49,9 +49,13 @@ namespace Assets.Scripts.MovementComponents
 
         protected abstract void HandleMovement();
         
-        protected void Translate(int sign)
+        protected void Translate(int delta)
         {
+            var sign = Mathf.Sign(delta);
             _angle += Speed*Mathf.Sign(sign);
+            var scale = transform.localScale;
+            scale.x = sign;
+            transform.localScale = scale;
         }
 
         #endregion
