@@ -10,9 +10,7 @@ namespace Assets.Scripts.Controllers
         public enum Control
         {
             Left,
-            Right,
-            Shoot,
-            Punch
+            Right
         }
 
         [Serializable]
@@ -49,6 +47,17 @@ namespace Assets.Scripts.Controllers
         public bool CheckControl(Control control)
         {
             return Input.GetKey(_keys[control]);
+        }
+
+        public bool CheckShootEvent()
+        {
+            return Input.GetMouseButtonDown(0);
+        }
+
+        public Vector2 GetWayToPointer(Vector2 point)
+        {
+            var way = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - point;
+            return way.normalized;
         }
 
         #endregion

@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>WebGL:20</UnityBuildTarget>
     <UnityVersion>5.3.5f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -63,16 +65,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BulletSpawner\BulletSpawner.cs" />
+    <Compile Include="Assets\BulletSpawner\MainCharacter\SimpleMainCharacterBulletSpawner.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\Internal\PixelPerfect.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\Internal\PixelPerfectHSBColor.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\Internal\PixelPerfectObject.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectCamera.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectSprite.cs" />
+    <Compile Include="Assets\Scripts\Bullet\BulletBase.cs" />
+    <Compile Include="Assets\Scripts\Bullet\SimpleBullet.cs" />
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CircleController.cs" />
     <Compile Include="Assets\Scripts\Controllers\LevelConfigurationController.cs" />
     <Compile Include="Assets\Scripts\Controllers\MovementController.cs" />
     <Compile Include="Assets\Scripts\Core\CustomMonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Core\Pull\PortablePool.cs" />
+    <Compile Include="Assets\Scripts\Core\Pull\PoolObject.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Circle transform components\SimpleCircleControlComponent.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Enemies\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Enemies\SimpleEnemy.cs" />

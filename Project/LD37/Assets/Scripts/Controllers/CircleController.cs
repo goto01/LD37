@@ -26,6 +26,12 @@ namespace Assets.Scripts.Controllers
             return new Vector2(_origin.x + Mathf.Cos(angle)* radius, _origin.y + Mathf.Sin(angle)* radius);
         }
 
+        public bool CheckIfObjectOutOfBorder(Transform transform)
+        {
+            if (Vector2.Distance(_origin, transform.position) > _circleRadius) return true;
+            return false;
+        }
+
         #endregion
     }
 }
