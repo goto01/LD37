@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>WebGL:20</UnityBuildTarget>
     <UnityVersion>5.3.5f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -81,8 +79,8 @@
     <Compile Include="Assets\Scripts\Core\CustomMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Depended\MouseRotatedComponent.cs" />
     <Compile Include="Assets\Scripts\Core\Depended\PositionDependedComponent.cs" />
-    <Compile Include="Assets\Scripts\Core\Pull\PortablePool.cs" />
     <Compile Include="Assets\Scripts\Core\Pull\PoolObject.cs" />
+    <Compile Include="Assets\Scripts\Core\Pull\PortablePool.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Circle transform components\SimpleCircleControlComponent.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Enemies\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Enemies\SimpleEnemy.cs" />
@@ -92,7 +90,7 @@
   <ItemGroup>
     <None Include="Assets\PixelPerfect\README.txt" />
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
+    <None Include="Assets\Shaders\SimpleTransitionShader.shader" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
