@@ -13,7 +13,7 @@ namespace Assets.Scripts.MovementComponents
         [Space]
         [Space]
         [SerializeField] private float _speed;
-        [SerializeField] [Range(0,2)] private float _speedDelta;
+        [SerializeField] [Range(0,2)] private float _speedDelta = 1;
         [SerializeField] private float _radiusOffset;
         [SerializeField] private float _angle;
         [Space]
@@ -24,13 +24,10 @@ namespace Assets.Scripts.MovementComponents
         #region Poperties
 
         private float Speed { get { return _speed*_speedDelta; } }
-
-        private bool IsMoving {
-            get { return _movementController.CheckControl(MovementController.Control.Left) || 
-                    _movementController.CheckControl(MovementController.Control.Right);}
-        }
-
+        
         public float Angle { get { return _angle; } }
+
+        abstract protected bool IsMoving { get; }
 
         #endregion
 

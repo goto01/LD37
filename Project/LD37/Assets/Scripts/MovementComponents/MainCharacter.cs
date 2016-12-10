@@ -4,6 +4,12 @@ namespace Assets.Scripts.MovementComponents
 {
     class MainCharacter : MovementComponent
     {
+        #region Properties
+
+        protected override bool IsMoving { get {return _movementController.CheckControl(MovementController.Control.Left)||_movementController.CheckControl(MovementController.Control.Right);} }
+
+        #endregion
+
         #region Override 
 
         protected override void HandleMovement()

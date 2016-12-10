@@ -74,6 +74,8 @@
     <Compile Include="Assets\Scripts\Controllers\MovementController.cs" />
     <Compile Include="Assets\Scripts\Core\CustomMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Circle transform components\SimpleCircleControlComponent.cs" />
+    <Compile Include="Assets\Scripts\MovementComponents\Enemies\EnemyBase.cs" />
+    <Compile Include="Assets\Scripts\MovementComponents\Enemies\SimpleEnemy.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\MainCharacter.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\MovementComponent.cs" />
   </ItemGroup>
