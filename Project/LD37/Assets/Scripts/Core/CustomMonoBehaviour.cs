@@ -11,6 +11,7 @@ namespace Assets.Scripts.Core
         [SerializeField] protected LevelConfigurationController _levelConfigurationController;
         [SerializeField] protected MovementController _movementController;
         [SerializeField] protected CircleController _circleController;
+        [SerializeField] protected EffectController _effectController;
 
         #endregion
     }

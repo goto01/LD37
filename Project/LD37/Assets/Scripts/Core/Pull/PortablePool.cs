@@ -37,6 +37,16 @@ namespace Assets.Scripts.Core.Pull
             return nextObject.GetComponent<T>();
         }
 
+        public GameObject PopObject()
+        {
+            var nextObject = NextObject;
+            if (NextObject == null) return null;
+            _pool.Remove(nextObject);
+            nextObject.gameObject.SetActive(true);
+            nextObject.Destroyed += NextObjectOnDestroyed;
+            return nextObject.gameObject;
+        }
+
         private void NextObjectOnDestroyed(object sender, EventArgs eventArgs)
         {
             var pullObject = sender as PoolObject;

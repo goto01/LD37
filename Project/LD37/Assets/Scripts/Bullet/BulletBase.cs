@@ -15,9 +15,15 @@ namespace Assets.Scripts.Bullet
 
         #endregion
 
+        #region Properties
+
+        public Vector2 SparklPosition { get { return transform.GetChild(0).position; } }
+
+        #endregion
+
         #region Unity events
 
-        protected virtual void FixedUpdate()
+        protected virtual void Update()
         {
             UpdatePosition();
             DestroyIfOutOfBorder();
@@ -55,7 +61,11 @@ namespace Assets.Scripts.Bullet
 
         protected virtual void DestroyIfOutOfBorder()
         {
-            if (_circleController.CheckIfObjectOutOfBorder(transform)) gameObject.SetActive(false);
+            if (_circleController.CheckIfBulletOutOfBorder(transform))
+            {
+                _effectController.MakeSparks(transform.position);
+                gameObject.SetActive(false);
+            }
         }
 
         #endregion

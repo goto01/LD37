@@ -8,6 +8,7 @@ namespace Assets.Scripts.Controllers
 
         [Space]
         [SerializeField] private float _circleRadius;
+        [SerializeField] private float _circleRadiusBullets;
         [SerializeField] private Vector2 _origin;
 
         #endregion
@@ -29,6 +30,12 @@ namespace Assets.Scripts.Controllers
         public bool CheckIfObjectOutOfBorder(Transform transform)
         {
             if (Vector2.Distance(_origin, transform.position) > _circleRadius) return true;
+            return false;
+        }
+
+        public bool CheckIfBulletOutOfBorder(Transform transform)
+        {
+            if (Vector2.Distance(_origin, transform.position) > _circleRadiusBullets) return true;
             return false;
         }
 

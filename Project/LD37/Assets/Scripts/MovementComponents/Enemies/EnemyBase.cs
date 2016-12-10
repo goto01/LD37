@@ -33,9 +33,15 @@ namespace Assets.Scripts.MovementComponents.Enemies
             _currentHealth = _health;
         }
 
-        protected virtual void OnTriggerEnter2D(Collider2D collider)
+        protected virtual void OnTriggerStay2D(Collider2D collider)
         {
-            if (collider.tag == BulletBase.Tag) _currentHealth--;
+            if (collider.tag == BulletBase.Tag)
+            {
+                _currentHealth--;
+                collider.gameObject.SetActive(false);
+                _effectController.MakeSparks(transform.position);
+                _effectController.Shake();
+            }
             if (IsDead) gameObject.SetActive(false);
         }
 

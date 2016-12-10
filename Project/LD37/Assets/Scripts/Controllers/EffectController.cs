@@ -1,0 +1,74 @@
+﻿using System.Collections;
+using System.Linq;
+using Assets.Scripts.Core.Pull;
+using UnityEngine;
+
+namespace Assets.Scripts.Controllers
+{
+    public class EffectController : BaseController
+    {
+        #region Fields
+        
+        [SerializeField] private PortablePool _sparksPool;
+        [SerializeField] private AnimationCurve _animationCurve;
+
+        private Vector3 _cameraPos;
+
+        private IEnumerator _coroutine;
+
+        #endregion
+
+        #region Unity events
+
+        protected virtual void Awake()
+        {
+            _cameraPos = Camera.main.transform.position;
+        }
+
+        #endregion
+
+        #region Public methods
+
+        public void MakeSparks(Vector2 respPos)
+        {
+            var @object = _sparksPool.PopObject();
+            var pos = @object.transform.position;
+            pos.x = respPos.x;
+            pos.y = respPos.y;
+            @object.transform.position = pos;
+        }
+
+        public void Shake()
+        {
+            if (_coroutine!= null) StopCoroutine(_coroutine);
+            Camera.main.transform.position = _cameraPos;
+            _coroutine = ShakeCoroutine();
+            StartCoroutine(_coroutine);
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private IEnumerator ShakeCoroutine()
+        {
+            var timeStamp = 0f;
+            var endTime = _animationCurve.keys.Last().time;
+            var cameraPos = Camera.main.transform.position;
+            while (timeStamp < endTime)
+            {
+                var newCameraPos = cameraPos;
+                Camera.main.transform.position = cameraPos;
+                var value = _animationCurve.Evaluate(timeStamp);
+                newCameraPos.x += Random.Range(-value, value);
+                newCameraPos.y += Random.Range(-value, value);
+                Camera.main.transform.position = newCameraPos;
+                timeStamp += Time.deltaTime;
+                yield return new WaitForSeconds(Time.deltaTime);
+            }
+            Camera.main.transform.position = _cameraPos;
+        }
+
+        #endregion
+    }
+}

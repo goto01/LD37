@@ -4,6 +4,13 @@ namespace Assets.BulletSpawner.MainCharacter
 {
     class SimpleMainCharacterBulletSpawner : BulletSpawner
     {
+        #region Fields
+
+        private const string BoomTrigger = "Boom";
+        [SerializeField] private Animator _animator;
+
+        #endregion
+
         protected override Vector2 Way
         {
             get { return _movementController.GetWayToPointer(transform.position); }
@@ -13,8 +20,9 @@ namespace Assets.BulletSpawner.MainCharacter
         {
             if (_movementController.CheckShootEvent())
             {
-                Debug.Log(transform.position.ToString());
+                _effectController.Shake();
                 MakeShot();
+                _animator.SetTrigger(BoomTrigger);
             }
         }
     }
