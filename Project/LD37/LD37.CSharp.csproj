@@ -71,9 +71,11 @@
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectCamera.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectSprite.cs" />
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\CircleController.cs" />
     <Compile Include="Assets\Scripts\Controllers\LevelConfigurationController.cs" />
     <Compile Include="Assets\Scripts\Controllers\MovementController.cs" />
     <Compile Include="Assets\Scripts\Core\CustomMonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\MovementComponents\MainCharacter.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\MovementComponent.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,13 +3,14 @@ using UnityEngine;
 
 namespace Assets.Scripts.Core
 {
-    public class CustomMonoBehaviour
+    public class CustomMonoBehaviour : MonoBehaviour
     {
         #region Fields
 
         [Space]
-        [SerializeField] private LevelConfigurationController _levelConfigurationController;
-        [SerializeField] private MovementController _movementController;
+        [SerializeField] protected LevelConfigurationController _levelConfigurationController;
+        [SerializeField] protected MovementController _movementController;
+        [SerializeField] protected CircleController _circleController;
 
         #endregion
     }

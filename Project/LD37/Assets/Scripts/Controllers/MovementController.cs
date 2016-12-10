@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Assets.Scripts.Controllers
 {
-    class MovementController : BaseController
+    public class MovementController : BaseController
     {
-        internal enum Control
+        public enum Control
         {
             Left,
             Right,

@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Controllers
 {
-    class BaseController : MonoBehaviour
+    public class BaseController : MonoBehaviour
     {
         public const string Tag = "CustomGameController";
 
