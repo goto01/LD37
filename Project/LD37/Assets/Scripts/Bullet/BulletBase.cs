@@ -7,6 +7,8 @@ namespace Assets.Scripts.Bullet
     {
         #region Fields
 
+        public const string Tag = "Bullet";
+
         [Space]
         [Space]
         [SerializeField] protected Vector2 _way;
@@ -19,6 +21,11 @@ namespace Assets.Scripts.Bullet
         {
             UpdatePosition();
             DestroyIfOutOfBorder();
+        }
+
+        protected virtual void Reset()
+        {
+            gameObject.tag = Tag;
         }
 
         #endregion
