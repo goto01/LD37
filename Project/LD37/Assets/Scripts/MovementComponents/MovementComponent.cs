@@ -30,6 +30,8 @@ namespace Assets.Scripts.MovementComponents
                     _movementController.CheckControl(MovementController.Control.Right);}
         }
 
+        public float Angle { get { return _angle; } }
+
         #endregion
 
         #region Unity events
