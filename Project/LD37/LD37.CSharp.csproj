@@ -91,6 +91,7 @@
   <ItemGroup>
     <None Include="Assets\PixelPerfect\README.txt" />
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
+    <None Include="Assets\Shaders\ColorReplaceShader.shader" />
     <None Include="Assets\Shaders\SimpleTransitionShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
