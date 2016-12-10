@@ -6,7 +6,7 @@ namespace Assets.Scripts.Bullet
     {
         protected override void UpdatePosition()
         {
-            transform.position += (Vector3)(_levelConfigurationController.MainCharacterBulletSpeed * _way);
+            transform.position += (Vector3)(_levelConfigurationController.MainCharacterBulletSpeed * _way.normalized);
         }
     }
 }

@@ -9,9 +9,13 @@ namespace Assets.BulletSpawner.MainCharacter
             get { return _movementController.GetWayToPointer(transform.position); }
         }
 
-        protected virtual void FixedUpdate()
+        protected virtual void Update()
         {
-            if (_movementController.CheckShootEvent()) MakeShot();
+            if (_movementController.CheckShootEvent())
+            {
+                Debug.Log(transform.position.ToString());
+                MakeShot();
+            }
         }
     }
 }

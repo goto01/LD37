@@ -54,10 +54,19 @@ namespace Assets.Scripts.Controllers
             return Input.GetMouseButtonDown(0);
         }
 
+        protected virtual void Update()
+        {
+            Debug.DrawLine(_point, _point + _way);
+        }
+        private Vector2 _point;
+        private Vector2 _way;
         public Vector2 GetWayToPointer(Vector2 point)
         {
+            Debug.DrawLine((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.one);
             var way = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - point;
-            return way.normalized;
+            _way = way;
+            _point = point;
+            return way;
         }
 
         #endregion

@@ -32,6 +32,8 @@ namespace Assets.Scripts.Bullet
             position.y = startPos.y;
             transform.position = position;
             _way = way;
+            float angle = Mathf.Atan2(way.y, way.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
         #endregion
