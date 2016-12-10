@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Core;
+using Assets.Scripts.MovementComponents.Enemies;
 using UnityEngine;
 
 namespace Assets.Scripts.Bullet
@@ -19,14 +20,17 @@ namespace Assets.Scripts.Bullet
 
         public Vector2 SparklPosition { get { return transform.GetChild(0).position; } }
 
+        protected abstract Vector2 Offset { get; }
+
         #endregion
 
         #region Unity events
 
-        protected virtual void Update()
+        protected virtual void FixedUpdate()
         {
             UpdatePosition();
             DestroyIfOutOfBorder();
+            CheckForColision();
         }
 
         protected virtual void Reset()
@@ -65,6 +69,23 @@ namespace Assets.Scripts.Bullet
             {
                 _effectController.MakeSparks(transform.position);
                 gameObject.SetActive(false);
+            }
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private void CheckForColision()
+        {
+            var hit = Physics2D.Raycast(transform.position, _way, Offset.magnitude, _levelConfigurationController._bulletsLayerMask);
+            if (hit.collider != null)
+            {
+                var enemy = hit.collider.GetComponent<SimpleEnemy>();
+                enemy.MakeDamage();
+                enemy.Push(_way);
+                gameObject.SetActive(false);
+                _effectController.MakeSparks(hit.point);
             }
         }
 

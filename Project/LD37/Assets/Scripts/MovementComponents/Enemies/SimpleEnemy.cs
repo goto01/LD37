@@ -1,18 +1,47 @@
-﻿using System.Runtime.Remoting.Messaging;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.MovementComponents.Enemies
 {
-    class SimpleEnemy : EnemyBase
+    class SimpleEnemy : MovementComponent
     {
+        public enum Way
+        {
+            Left = 1,
+            Righ = -1,
+            Stay = 0,
+        }
+
         #region Fields
 
+        private const string DamageTrigger = "Damage";
+
         [Space]
-        [SerializeField] private Way _way;
+        [Space]
+        [SerializeField] private int _health;
+        [SerializeField] private int _currentHealth;
+        [Space]
+        [SerializeField]
+        private Way _way;
 
         #endregion
 
-        #region Override 
+        #region Properties
+
+        private bool IsDead { get { return _currentHealth == 0; } }
+
+        #endregion
+
+        #region Unity events
+
+        protected virtual void OnEnable()
+        {
+            _currentHealth = _health;
+        }
+
+        #endregion
+
+
+        #region Overrided methods
 
         protected override bool IsMoving
         {
@@ -22,6 +51,34 @@ namespace Assets.Scripts.MovementComponents.Enemies
         protected override void HandleMovement()
         {
             Translate((int)_way);
+        }
+
+        #endregion
+
+        #region Public methods
+
+        public void MakeDamage()
+        {
+            _currentHealth--;
+            if (IsDead) gameObject.SetActive(false);
+            UpdateAnimatorDamage();
+        }
+
+        public void Push(Vector2 way)
+        {
+            Debug.DrawLine(transform.position, (Vector2)transform.position + Vector2.Dot(WayForward, way)/WayForward.magnitude * WayForward);
+            var proj = Vector2.Dot(WayForward, way)/WayForward.magnitude;
+            if (Mathf.Sign(proj) > 0 && _way == Way.Left || Mathf.Sign(proj) < 0 && _way == Way.Righ) _angle += _levelConfigurationController.AngleThrow;
+            else if (Mathf.Sign(proj) > 0 && _way == Way.Righ || Mathf.Sign(proj) < 0 && _way == Way.Left) _angle -= _levelConfigurationController.AngleThrow;
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private void UpdateAnimatorDamage()
+        {
+            _animator.SetTrigger(DamageTrigger);
         }
 
         #endregion

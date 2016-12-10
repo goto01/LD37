@@ -9,7 +9,6 @@ namespace Assets.Scripts.Core.Depended
         protected virtual void Update()
         {
             var way = (Vector2)_camera.ScreenToWorldPoint(Input.mousePosition) - (Vector2) transform.position;
-            Debug.DrawLine((Vector2)_camera.ScreenToWorldPoint(Input.mousePosition), Vector3.one);
             float angle = Mathf.Atan2(way.y, way.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }

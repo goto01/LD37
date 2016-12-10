@@ -15,9 +15,11 @@ namespace Assets.Scripts.MovementComponents
         [SerializeField] private float _speed;
         [SerializeField] [Range(0,2)] private float _speedDelta = 1;
         [SerializeField] private float _radiusOffset;
-        [SerializeField] private float _angle;
+        [SerializeField] protected float _angle;
         [Space]
-        [SerializeField] private Animator _animator;
+        [SerializeField] protected Animator _animator;
+
+        private Vector2 _prevPoint;
 
         #endregion
 
@@ -29,17 +31,23 @@ namespace Assets.Scripts.MovementComponents
 
         abstract protected bool IsMoving { get; }
 
+        public Vector2 WayForward { get { return ((Vector2)transform.position - _prevPoint).normalized; } }
+
+        public Vector2 WayBack { get { return ((Vector2)transform.position + _prevPoint).normalized; } }
+
         #endregion
 
         #region Unity events
 
         void FixedUpdate ()
         {
-	        HandleMovement();
+            //Debug.DrawLine(transform.position, (Vector2)transform.position + WayForward);
+            _prevPoint = transform.position;
+            HandleMovement();
             UpdatePosition();
             UpdateAnimator();
         }
-
+        
         #endregion
 
         #region Protected methods
@@ -51,7 +59,7 @@ namespace Assets.Scripts.MovementComponents
             var sign = Mathf.Sign(delta);
             _angle += Speed*Mathf.Sign(sign);
             var scale = transform.localScale;
-            scale.x = sign;
+            scale.x = .03125f * sign;
             transform.localScale = scale;
         }
 
