@@ -6,6 +6,7 @@ namespace Assets.Scripts.Controllers
 {
     public class MovementController : BaseController
     {
+        [Flags]
         public enum Control
         {
             Left,
