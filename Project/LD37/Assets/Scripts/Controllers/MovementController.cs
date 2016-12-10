@@ -62,7 +62,6 @@ namespace Assets.Scripts.Controllers
         private Vector2 _way;
         public Vector2 GetWayToPointer(Vector2 point)
         {
-            Debug.DrawLine((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.one);
             var way = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - point;
             _way = way;
             _point = point;
