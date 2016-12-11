@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Controllers
 {
@@ -27,14 +29,22 @@ namespace Assets.Scripts.Controllers
 
         public float MainCharacterAngleThrow { get { return _mainCharacterAngleThrow; } }
 
-        private int CurrentCharacterHealth
+        public int CharacterHealth { get { return _characterHealth; } }
+
+        public int CurrentCharacterHealth
         {
             get { return _currentCharacterHealth; }
-            set { _currentCharacterHealth = value; }
+            private set { _currentCharacterHealth = value; }
         }
 
         #endregion
-        
+
+        #region Events
+
+        public event EventHandler HealthChanged;
+
+        #endregion
+
         #region Unity events
 
         protected virtual void Awake()
@@ -49,6 +59,7 @@ namespace Assets.Scripts.Controllers
         public void MakeDamageForMainCharacter(int damage = 1)
         {
             CurrentCharacterHealth -= damage;
+            HealthChanged(this, EventArgs.Empty);
         }
 
         #endregion

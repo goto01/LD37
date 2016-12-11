@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\Controllers\EffectController.cs" />
     <Compile Include="Assets\Scripts\Controllers\LevelConfigurationController.cs" />
     <Compile Include="Assets\Scripts\Controllers\MovementController.cs" />
+    <Compile Include="Assets\Scripts\Core\Bars\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Core\CustomMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Depended\MouseRotatedComponent.cs" />
     <Compile Include="Assets\Scripts\Core\Depended\PositionDependedComponent.cs" />
@@ -93,6 +94,7 @@
   <ItemGroup>
     <None Include="Assets\PixelPerfect\README.txt" />
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
+    <None Include="Assets\Shaders\Bar shader.shader" />
     <None Include="Assets\Shaders\ColorReplaceShader.shader" />
     <None Include="Assets\Shaders\SimpleTransitionShader.shader" />
   </ItemGroup>
