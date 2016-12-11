@@ -21,7 +21,7 @@ namespace Assets.Scripts.Controllers
 
         #region Public methods
 
-        public Vector2 GetCoordsByAngle(float angle, float radiusOffset)
+        public Vector2 GetCoordsByAngle(float angle, float radiusOffset = 0)
         {
             var radius = _circleRadius + radiusOffset;
             return new Vector2(_origin.x + Mathf.Cos(angle)* radius, _origin.y + Mathf.Sin(angle)* radius);
