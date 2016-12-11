@@ -36,6 +36,7 @@ namespace Assets.Scripts.MovementComponents.Enemies
         protected virtual void OnEnable()
         {
             _currentHealth = _health;
+            _effectController.MakeBlackHole(_circleController.GetCoordsByAngle(_angle, _radiusOffset));
         }
 
         #endregion
@@ -60,7 +61,7 @@ namespace Assets.Scripts.MovementComponents.Enemies
         public void MakeDamage()
         {
             _currentHealth--;
-            if (IsDead) gameObject.SetActive(false);
+            if (IsDead) Die();
             UpdateAnimatorDamage();
         }
 
@@ -79,6 +80,12 @@ namespace Assets.Scripts.MovementComponents.Enemies
         private void UpdateAnimatorDamage()
         {
             _animator.SetTrigger(DamageTrigger);
+        }
+
+        private void Die()
+        {
+            _effectController.MakeBoom(transform.position);
+            gameObject.SetActive(false);
         }
 
         #endregion

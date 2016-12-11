@@ -11,6 +11,8 @@ namespace Assets.Scripts.Controllers
         
         [SerializeField] private PortablePool _sparksPool;
         [SerializeField] private AnimationCurve _animationCurve;
+        [SerializeField] private PortablePool _boomsPool;
+        [SerializeField] private PortablePool _blackHolesPool;
 
         private Vector3 _cameraPos;
 
@@ -44,6 +46,22 @@ namespace Assets.Scripts.Controllers
             Camera.main.transform.position = _cameraPos;
             _coroutine = ShakeCoroutine();
             StartCoroutine(_coroutine);
+        }
+
+        public void MakeBoom(Vector2 pos)
+        {
+            var boom = _boomsPool.PopObject();
+            Vector3 newPos = pos;
+            newPos.z = boom.transform.position.z;
+            boom.transform.position = newPos;
+        }
+
+        public void MakeBlackHole(Vector2 pos)
+        {
+            var blackHole = _blackHolesPool.PopObject();
+            Vector3 newPos = pos;
+            newPos.z = blackHole.transform.position.z;
+            blackHole.transform.position = newPos;
         }
 
         #endregion
