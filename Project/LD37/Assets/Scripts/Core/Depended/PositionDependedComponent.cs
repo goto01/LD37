@@ -9,6 +9,7 @@ namespace Assets.Scripts.Core.Depended
         [Space]
         [Space]
         [SerializeField] private Transform _target;
+        [SerializeField] private Vector2 _offset;
 
         #endregion
 
@@ -33,6 +34,7 @@ namespace Assets.Scripts.Core.Depended
             var position = transform.position;
             position.x = _target.position.x;
             position.y = _target.position.y;
+            position += (Vector3)_offset;
             transform.position = position;
         }
 

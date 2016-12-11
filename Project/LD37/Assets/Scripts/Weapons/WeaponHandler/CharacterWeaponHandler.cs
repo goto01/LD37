@@ -9,10 +9,16 @@ namespace Assets.Scripts.Weapons.WeaponHandler
     {
         #region Fields
 
+        private const string ReloadedParameter = "Reloaded";
+        private const string BulletRanOutParameter = "BulletRanOut";
+
         [Space]
         [Space]
         [SerializeField] private List<SimpleMainCharacterGun> _weapons; 
         [SerializeField] private int _currentWeaponIndex;
+        [Space]
+        [Space]
+        [SerializeField] private Animator _cursor;
 
         #endregion
 
@@ -41,6 +47,8 @@ namespace Assets.Scripts.Weapons.WeaponHandler
         protected virtual void Update()
         {
             CurrentWeaponIndex += _movementController.GetScroll();
+            _cursor.SetBool(ReloadedParameter, CurrentWeapon.Reloaded);
+            _cursor.SetBool(BulletRanOutParameter, CurrentWeapon.IsBulletsInHolderRanOut && CurrentWeapon.IsBulletsRanOut);
         }
 
         #endregion

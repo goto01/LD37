@@ -40,7 +40,7 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
 
         private float RandomAngle { get { return Random.Range(-_angleOfFire, _angleOfFire); } }
 
-        private bool IsBulletsInHolderRanOut { get { return _currentBulletsInHolder <= 0; } }
+        public bool IsBulletsInHolderRanOut { get { return _currentBulletsInHolder <= 0; } }
 
         public int TotalBullet { get { return _totalBullets; } }
 
@@ -48,7 +48,9 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
 
         public int BulletsInHolder { get { return _bulletsInHolder; } }
 
-        private bool IsBulletsRanOut { get { return _totalBullets <= 0; } }
+        public bool IsBulletsRanOut { get { return _totalBullets <= 0; } }
+
+        public bool Reloaded { get { return _reloading; } }
 
         #endregion
 
