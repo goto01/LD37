@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\Weapons\BaseWeapon.cs" />
     <Compile Include="Assets\Scripts\Weapons\MainCharacterWeapons\SimpleMainCharacterGun.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponHandler\CharacterWeaponHandler.cs" />
+    <Compile Include="Assets\Scripts\Weapons\WeaponPreviews\HolderPreview.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponPreviews\WeaponPreview.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +109,5 @@
     <None Include="Assets\Shaders\ColorReplaceShader.shader" />
     <None Include="Assets\Shaders\SimpleTransitionShader.shader" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

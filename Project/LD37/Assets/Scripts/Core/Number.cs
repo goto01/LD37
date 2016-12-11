@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Core
@@ -20,7 +21,6 @@ namespace Assets.Scripts.Core
         {
             if (_number == value) return;
             _number = value;
-            Debug.Log(_number);
             var index = _animators.Count - 1;
             while (value != 0)
             {
@@ -28,7 +28,16 @@ namespace Assets.Scripts.Core
                 _animators[index--].SetInteger(ValueParameter, n);
                 value /= 10;
             }
-            while (index != 0) _animators[index--].SetInteger(ValueParameter, 0);
+            try
+            {
+                while (index >= 0) _animators[index--].SetInteger(ValueParameter, 0);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(name);
+                Debug.Log(index);
+                Debug.Break();
+            }
         }
 
         #endregion
