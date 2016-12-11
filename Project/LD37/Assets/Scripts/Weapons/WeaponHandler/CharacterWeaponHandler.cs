@@ -32,6 +32,8 @@ namespace Assets.Scripts.Weapons.WeaponHandler
             }
         }
 
+        public SimpleMainCharacterGun CurrentWeapon { get { return _weapons[_currentWeaponIndex]; } }
+
         #endregion
 
         #region Unity events

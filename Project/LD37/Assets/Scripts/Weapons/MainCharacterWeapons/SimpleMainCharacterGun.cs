@@ -18,6 +18,9 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
         [SerializeField] [Range(1, 40)] private int _currentBulletsInHolder;
         [SerializeField] [Range(0, 5)] private int _reloadingTime;
         [SerializeField] private bool _reloading;
+        [Space]
+        [Space]
+        [SerializeField] private int _totalBullets;
 
         private float _lastShotTimeStamp;
 
@@ -37,7 +40,15 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
 
         private float RandomAngle { get { return Random.Range(-_angleOfFire, _angleOfFire); } }
 
-        private bool IsBulletsRanOut { get { return _currentBulletsInHolder == 0; } }
+        private bool IsBulletsInHolderRanOut { get { return _currentBulletsInHolder <= 0; } }
+
+        public int TotalBullet { get { return _totalBullets; } }
+
+        public int CurentBulletsInHolder { get { return _currentBulletsInHolder; } }
+
+        public int BulletsInHolder { get { return _bulletsInHolder; } }
+
+        private bool IsBulletsRanOut { get { return _totalBullets <= 0; } }
 
         #endregion
 
@@ -71,10 +82,11 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
 
         protected override void MakeShot(float angle)
         {
+            if (IsBulletsRanOut && IsBulletsInHolderRanOut) return;
             _currentBulletsInHolder--;
             _lastShotTimeStamp = Time.time;
             base.MakeShot(RandomAngle);
-            if (IsBulletsRanOut) StartCoroutine(Reload());
+            if (IsBulletsInHolderRanOut) StartCoroutine(Reload());
         }
 
         #endregion
@@ -83,7 +95,16 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
 
         private void ResetBullets()
         {
-            _currentBulletsInHolder = _bulletsInHolder;
+            if (_totalBullets <= _bulletsInHolder)
+            {
+                _currentBulletsInHolder = _totalBullets;
+                _totalBullets = 0;
+            }
+            else
+            {
+                _currentBulletsInHolder = _bulletsInHolder;
+                _totalBullets -= _bulletsInHolder;
+            }
         }
 
         private IEnumerator Reload()
