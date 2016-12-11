@@ -17,6 +17,10 @@ namespace Assets.Scripts.MovementComponents
         [SerializeField] protected float _angle;
         [Space]
         [SerializeField] protected Animator _animator;
+        [Space]
+        [Space]
+        //used by animator
+        [SerializeField] protected bool _stoped;
 
         private Vector2 _prevPoint;
 
@@ -38,9 +42,8 @@ namespace Assets.Scripts.MovementComponents
 
         #region Unity events
 
-        void FixedUpdate ()
+        protected virtual void FixedUpdate ()
         {
-            //Debug.DrawLine(transform.position, (Vector2)transform.position + WayForward);
             _prevPoint = transform.position;
             HandleMovement();
             UpdatePosition();
@@ -55,6 +58,7 @@ namespace Assets.Scripts.MovementComponents
         
         protected void Translate(int delta)
         {
+            if (_stoped) return;
             var sign = Mathf.Sign(delta);
             _angle += Speed*Mathf.Sign(sign);
             var scale = transform.localScale;

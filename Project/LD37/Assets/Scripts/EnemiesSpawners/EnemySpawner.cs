@@ -75,7 +75,7 @@ namespace Assets.Scripts.EnemiesSpawners
         private IEnumerator StartSpawning()
         {
             while (true)
-            {qweqwe
+            {
                 var enemiesNumber = Mathf.RoundToInt(_spawnFunction.Evaluate(Time.time));
                 SpawnEnemies(enemiesNumber);
                 yield return new WaitForSeconds(_step);
