@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Core\Depended\MouseRotatedComponent.cs" />
     <Compile Include="Assets\Scripts\Core\Depended\PositionDependedComponent.cs" />
     <Compile Include="Assets\Scripts\Core\DestroyableComponent.cs" />
+    <Compile Include="Assets\Scripts\Core\Number.cs" />
     <Compile Include="Assets\Scripts\Core\Pull\PoolObject.cs" />
     <Compile Include="Assets\Scripts\Core\Pull\PortablePool.cs" />
     <Compile Include="Assets\Scripts\DisplayFPS.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Assets\Scripts\Weapons\BaseWeapon.cs" />
     <Compile Include="Assets\Scripts\Weapons\MainCharacterWeapons\SimpleMainCharacterGun.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponHandler\CharacterWeaponHandler.cs" />
+    <Compile Include="Assets\Scripts\Weapons\WeaponPreviews\WeaponPreview.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PixelPerfect\README.txt" />
@@ -106,5 +108,6 @@
     <None Include="Assets\Shaders\ColorReplaceShader.shader" />
     <None Include="Assets\Shaders\SimpleTransitionShader.shader" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

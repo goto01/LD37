@@ -44,6 +44,8 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
 
         public int TotalBullet { get { return _totalBullets; } }
 
+        public int TotalBulletWithInHolder { get { return _totalBullets + _currentBulletsInHolder; } }
+
         public int CurentBulletsInHolder { get { return _currentBulletsInHolder; } }
 
         public int BulletsInHolder { get { return _bulletsInHolder; } }

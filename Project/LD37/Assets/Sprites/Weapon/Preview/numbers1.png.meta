@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: a44f6db04d49dff45aee7d729274f30d
-timeCreated: 1481480924
+guid: 83533a29beffebc40935ddf6bfc935c0
+timeCreated: 1481487614
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: beaver_0
-    21300002: beaver_1
-    21300004: beaver_2
-    21300006: beaver_3
-    21300008: beaver_4
-    21300010: beaver_5
-    21300012: beaver_6
-    21300014: beaver_7
-    21300016: beaver_8
-    21300018: beaver_9
+    21300000: numbers1_0
+    21300002: numbers1_1
+    21300004: numbers1_2
+    21300006: numbers1_3
+    21300008: numbers1_4
+    21300010: numbers1_5
+    21300012: numbers1_6
+    21300014: numbers1_7
+    21300016: numbers1_8
+    21300018: numbers1_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -36,7 +36,7 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -3
+  textureFormat: -1
   maxTextureSize: 512
   textureSettings:
     filterMode: 0
@@ -60,112 +60,112 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: beaver_0
+    - name: numbers1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 24
-        width: 24
-        height: 24
+        y: 2
+        width: 5
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: beaver_1
+    - name: numbers1_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 2
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: numbers1_2
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 2
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: numbers1_3
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 2
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: numbers1_4
       rect:
         serializedVersion: 2
         x: 24
-        y: 24
-        width: 24
-        height: 24
+        y: 2
+        width: 5
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: beaver_2
+    - name: numbers1_5
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 2
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: numbers1_6
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 2
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: numbers1_7
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 2
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: numbers1_8
       rect:
         serializedVersion: 2
         x: 48
-        y: 24
-        width: 24
-        height: 24
+        y: 2
+        width: 5
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: beaver_3
+    - name: numbers1_9
       rect:
         serializedVersion: 2
-        x: 72
-        y: 24
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: beaver_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 23
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5584582, y: 0.49533156}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: beaver_5
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 0
-        width: 24
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: beaver_6
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 0
-        width: 24
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: beaver_7
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 0
-        width: 24
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: beaver_8
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 0
-        width: 22
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: beaver_9
-      rect:
-        serializedVersion: 2
-        x: 119
-        y: 0
-        width: 24
-        height: 23
+        x: 54
+        y: 2
+        width: 5
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

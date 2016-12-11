@@ -42,11 +42,20 @@ namespace Assets.Scripts.Weapons.WeaponHandler
 
         #endregion
 
+        #region Public methods
+
+        public bool CheckWeapon(SimpleMainCharacterGun weapon)
+        {
+            return _weapons.Contains(weapon);
+        }
+
+        #endregion
+
         #region Unity events
 
         protected virtual void Update()
         {
-            CurrentWeaponIndex += _movementController.GetScroll();
+            CurrentWeaponIndex -= _movementController.GetScroll();
             _cursor.SetBool(ReloadedParameter, CurrentWeapon.Reloaded);
             _cursor.SetBool(BulletRanOutParameter, CurrentWeapon.IsBulletsInHolderRanOut && CurrentWeapon.IsBulletsRanOut);
         }
