@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\MovementComponents\MovementComponent.cs" />
     <Compile Include="Assets\Scripts\Weapons\BaseWeapon.cs" />
     <Compile Include="Assets\Scripts\Weapons\MainCharacterWeapons\SimpleMainCharacterGun.cs" />
+    <Compile Include="Assets\Scripts\Weapons\WeaponHandler\CharacterWeaponHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PixelPerfect\README.txt" />

@@ -43,6 +43,11 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
 
         #region Unity events
 
+        protected virtual void OnEnable()
+        {
+            if (_reloading) StartCoroutine(Reload());
+        }
+
         protected virtual void Start()
         {
             ResetBullets();

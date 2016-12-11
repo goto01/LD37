@@ -54,6 +54,11 @@ namespace Assets.Scripts.Controllers
             return Input.GetMouseButton(0);
         }
 
+        public int GetScroll()
+        {
+            return Math.Sign(Input.GetAxis("Mouse ScrollWheel"));
+        }
+
         protected virtual void Update()
         {
             Debug.DrawLine(_point, _point + _way);

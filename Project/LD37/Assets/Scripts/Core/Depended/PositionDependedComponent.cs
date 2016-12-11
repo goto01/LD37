@@ -14,7 +14,21 @@ namespace Assets.Scripts.Core.Depended
 
         #region Unity events
 
+        protected virtual void OnEnable()
+        {
+            UpdatePosition();
+        }
+
         protected virtual void Update()
+        {
+            UpdatePosition();
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private void UpdatePosition()
         {
             var position = transform.position;
             position.x = _target.position.x;
