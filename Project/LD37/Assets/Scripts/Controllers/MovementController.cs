@@ -51,7 +51,7 @@ namespace Assets.Scripts.Controllers
 
         public bool CheckShootEvent()
         {
-            return Input.GetMouseButtonDown(0);
+            return Input.GetMouseButton(0);
         }
 
         protected virtual void Update()

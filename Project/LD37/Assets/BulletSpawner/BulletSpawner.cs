@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Bullet;
+﻿using System;
+using Assets.Scripts.Bullet;
 using Assets.Scripts.Core;
 using Assets.Scripts.Core.Pull;
 using UnityEngine;
@@ -22,12 +23,14 @@ namespace Assets.BulletSpawner
 
         #endregion
 
-        #region Protected methods
+        #region Public methods
 
-        protected void MakeShot()
+        public virtual void MakeShot(float angle = 0)
         {
+            var way = Way;
+            if (Math.Abs(angle) > .001) way = Quaternion.Euler(0, 0, angle)*way; 
             var bullet = _pool.PopObject<BulletBase>();
-            bullet.InitBullet(transform.position, Way);
+            bullet.InitBullet(transform.position, way);
         }
 
         #endregion

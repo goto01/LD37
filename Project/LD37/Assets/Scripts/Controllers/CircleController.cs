@@ -19,6 +19,23 @@ namespace Assets.Scripts.Controllers
 
         #endregion
 
+        #region Unity events
+
+#if UNITY_EDITOR
+
+        protected virtual void OnDrawGizmos()
+        {
+            Gizmos.color = new Color(0, 1, 0, .3f);
+            Gizmos.DrawSphere(_origin, _circleRadius);
+            Gizmos.color = new Color(0, 1, 0, .5f);
+            Gizmos.DrawSphere(_origin, .1f);
+            Gizmos.color = Color.white;
+        }
+
+#endif
+
+        #endregion
+
         #region Public methods
 
         public Vector2 GetCoordsByAngle(float angle, float radiusOffset = 0)

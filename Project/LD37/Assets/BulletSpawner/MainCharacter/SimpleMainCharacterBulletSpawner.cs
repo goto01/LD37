@@ -16,14 +16,11 @@ namespace Assets.BulletSpawner.MainCharacter
             get { return _movementController.GetWayToPointer(transform.position); }
         }
 
-        protected virtual void Update()
+        public override void MakeShot(float angle = 0)
         {
-            if (_movementController.CheckShootEvent())
-            {
-                _effectController.Shake();
-                MakeShot();
-                _animator.SetTrigger(BoomTrigger);
-            }
+            _effectController.Shake();
+            _animator.SetTrigger(BoomTrigger);
+            base.MakeShot(angle);
         }
     }
 }

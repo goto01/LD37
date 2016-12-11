@@ -55,7 +55,6 @@ namespace Assets.Scripts.Core.Bars
         private IEnumerator Damage()
         {
             float d = .04f * Math.Sign(_delta - _oldDelta);
-            Debug.Log(d);
             while (Math.Abs(_oldDelta - _delta) > .05)
             {
                 _oldDelta += d;
