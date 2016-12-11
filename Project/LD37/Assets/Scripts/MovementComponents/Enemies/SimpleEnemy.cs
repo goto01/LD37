@@ -29,6 +29,12 @@ namespace Assets.Scripts.MovementComponents.Enemies
 
         private bool IsDead { get { return _currentHealth == 0; } }
 
+        public int Health
+        {
+            get { return _health; }
+            set { _health = value; }
+        }
+
         #endregion
 
         #region Unity events
@@ -36,12 +42,10 @@ namespace Assets.Scripts.MovementComponents.Enemies
         protected virtual void OnEnable()
         {
             _currentHealth = _health;
-            _effectController.MakeBlackHole(_circleController.GetCoordsByAngle(_angle, _radiusOffset));
         }
 
         #endregion
-
-
+        
         #region Overrided methods
 
         protected override bool IsMoving

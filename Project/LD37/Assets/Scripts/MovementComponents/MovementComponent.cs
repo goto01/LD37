@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Controllers;
-using Assets.Scripts.Core;
+﻿using Assets.Scripts.Core;
 using UnityEngine;
 
 namespace Assets.Scripts.MovementComponents
@@ -25,9 +24,9 @@ namespace Assets.Scripts.MovementComponents
 
         #region Poperties
 
-        private float Speed { get { return _speed*_speedDelta; } }
+        public float Speed { get { return _speed*_speedDelta; }set { _speed = value; } }
         
-        public float Angle { get { return _angle; } }
+        public float Angle { get { return _angle; }set { _angle = value; } }
 
         abstract protected bool IsMoving { get; }
 

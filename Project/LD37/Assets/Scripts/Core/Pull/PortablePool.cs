@@ -27,12 +27,18 @@ namespace Assets.Scripts.Core.Pull
 
         #region Public methods
 
-        public T PopObject<T>() where T:class
+        public T PopObject<T>() where T:MonoBehaviour
+        {
+            var @object = PopDeactivatedOject<T>();
+            @object.gameObject.SetActive(true);
+            return @object.GetComponent<T>();
+        }
+
+        public T PopDeactivatedOject<T>() where T : MonoBehaviour
         {
             var nextObject = NextObject;
             if (NextObject == null) return null;
             _pool.Remove(nextObject);
-            nextObject.gameObject.SetActive(true);
             nextObject.Destroyed += NextObjectOnDestroyed;
             return nextObject.GetComponent<T>();
         }
