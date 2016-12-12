@@ -68,7 +68,6 @@ namespace Assets.Scripts.Ability_system.Abilities
 
         protected IEnumerator Refresh()
         {
-            Debug.Log("REFRESH");
             _refreshing = true;
             _currentRefreshTime = 0;
             while (_currentRefreshTime < _refreshTime)

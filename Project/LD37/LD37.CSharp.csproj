@@ -76,6 +76,7 @@
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectSprite.cs" />
     <Compile Include="Assets\Scripts\Ability system\Abilities\AbilityBase.cs" />
     <Compile Include="Assets\Scripts\Ability system\Abilities\FlyAbility.cs" />
+    <Compile Include="Assets\Scripts\Ability system\Abilities\RicochetAbility.cs" />
     <Compile Include="Assets\Scripts\Ability system\Abilities\TailAbility.cs" />
     <Compile Include="Assets\Scripts\Ability system\AbilitiesSystemHandler.cs" />
     <Compile Include="Assets\Scripts\Ability system\AbilityPreview.cs" />

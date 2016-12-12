@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Controllers
 {
@@ -71,6 +72,19 @@ namespace Assets.Scripts.Controllers
         {
             if (Vector2.Distance(_origin, transform.position) > _circleRadiusBullets) return true;
             return false;
+        }
+
+        public Vector2 GetCoordOnCircle(Vector2 pos)
+        {
+            return (pos - _origin).normalized*_circleRadius;
+        }
+
+        public Vector2 GetReflectedVector(Vector2 pos, Vector2 way)
+        {
+            var n = pos - _origin;
+            var sign = Math.Sign(Vector3.Cross(way, n).z);
+            var angle = Vector2.Angle(way, n);
+            return Quaternion.Euler(0, 0, sign * 2 * angle) * (Vector2.zero - way);
         }
 
         #endregion

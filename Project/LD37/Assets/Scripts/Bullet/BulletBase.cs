@@ -42,7 +42,7 @@ namespace Assets.Scripts.Bullet
 
         #region Public methods
 
-        public void InitBullet(Vector2 startPos, Vector2 way, float maxDistance = 1)
+        public virtual void InitBullet(Vector2 startPos, Vector2 way, float maxDistance = 1)
         {
             _maxDistance = _circleController.CircleRadius * 2 * maxDistance;
             _startPosition = startPos;
@@ -51,8 +51,7 @@ namespace Assets.Scripts.Bullet
             position.y = startPos.y;
             transform.position = position;
             _way = way;
-            float angle = Mathf.Atan2(way.y, way.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            UpdateRotation();
         }
 
         #endregion
@@ -92,6 +91,12 @@ namespace Assets.Scripts.Bullet
                 gameObject.SetActive(false);
                 _effectController.MakeSparks(hit.point);
             }
+        }
+
+        protected void UpdateRotation()
+        {
+            float angle = Mathf.Atan2(_way.y, _way.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
         #endregion

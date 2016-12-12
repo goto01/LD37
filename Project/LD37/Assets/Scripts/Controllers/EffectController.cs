@@ -13,6 +13,9 @@ namespace Assets.Scripts.Controllers
         [SerializeField] private AnimationCurve _animationCurve;
         [SerializeField] private PortablePool _boomsPool;
         [SerializeField] private PortablePool _blackHolesPool;
+        [Space]
+        [SerializeField] private bool _recochet;
+        [SerializeField] private int _recochetNumber;
 
         private Vector3 _cameraPos;
 
@@ -63,6 +66,10 @@ namespace Assets.Scripts.Controllers
             newPos.z = blackHole.transform.position.z;
             blackHole.transform.position = newPos;
         }
+
+        public bool Recochet { get { return _recochet; }set { _recochet = value; } }
+
+        public int RecochetNumber { get { return _recochetNumber; } }
 
         #endregion
 
