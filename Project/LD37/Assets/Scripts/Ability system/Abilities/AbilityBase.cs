@@ -38,6 +38,20 @@ namespace Assets.Scripts.Ability_system.Abilities
 
         #endregion
 
+        #region Public methods
+
+        public void Unselect()
+        {
+            _selected = false;
+        }
+
+        public void Select()
+        {
+            _selected = true;
+        }
+
+        #endregion
+
         #region Protected methods
 
         protected abstract void Activate();

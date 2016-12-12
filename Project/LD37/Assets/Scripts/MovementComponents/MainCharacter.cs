@@ -10,6 +10,7 @@ namespace Assets.Scripts.MovementComponents
         private const string DamageTrigger = "Damage";
         private const string FlyTrigger = "Fly";
         private const string StopFlyTrigger = "StopFly";
+        private const string TailTrigger = "Tail";
 
         #endregion
 
@@ -61,6 +62,11 @@ namespace Assets.Scripts.MovementComponents
         {
             _levelConfigurationController.MakeDamageForMainCharacter();
             ShowDamage();
+        }
+
+        public void ShowTailPunch()
+        {
+            _animator.SetTrigger(TailTrigger);
         }
 
         #endregion

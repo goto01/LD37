@@ -71,6 +71,12 @@ namespace Assets.Scripts.Controllers
             return Math.Sign(Input.GetAxis("Mouse ScrollWheel"));
         }
 
+        public int GetAbilitySwitchDelta()
+        {
+            if (Input.GetKeyDown(KeyCode.W)) return -1;
+            return Input.GetKeyDown(KeyCode.S) ? 1 : 0;
+        }
+
         private Vector2 _point;
         private Vector2 _way;
         public Vector2 GetWayToPointer(Vector2 point)
