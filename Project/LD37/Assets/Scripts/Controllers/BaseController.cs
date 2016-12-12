@@ -8,7 +8,6 @@ namespace Assets.Scripts.Controllers
 
         protected virtual void Reset()
         {
-            Debug.Log("RESET");
             gameObject.tag = Tag;
         }
     }

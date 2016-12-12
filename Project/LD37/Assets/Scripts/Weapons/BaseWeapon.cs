@@ -30,9 +30,9 @@ namespace Assets.Scripts.Weapons
 
         #region Protected methods
 
-        protected virtual void MakeShot(float angle = 0)
+        protected virtual void MakeShot(float maxDistance = 1, float angle = 0)
         {
-            _spawner.MakeShot(angle);
+            _spawner.MakeShot(maxDistance, angle);
         }
 
         #endregion

@@ -40,6 +40,13 @@ namespace Assets.Scripts.Controllers
             _controls.ForEach(x=>_keys.Add(x.Control, x.KeyCode));
         }
 
+        protected virtual void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.P) && Time.timeScale != 0) Time.timeScale = 0;
+            else if (Input.GetKeyDown(KeyCode.P)) Time.timeScale = 1;
+                Debug.DrawLine(_point, _point + _way);
+        }
+
         #endregion
 
         #region Public methods
@@ -59,10 +66,6 @@ namespace Assets.Scripts.Controllers
             return Math.Sign(Input.GetAxis("Mouse ScrollWheel"));
         }
 
-        protected virtual void Update()
-        {
-            Debug.DrawLine(_point, _point + _way);
-        }
         private Vector2 _point;
         private Vector2 _way;
         public Vector2 GetWayToPointer(Vector2 point)

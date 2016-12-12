@@ -25,12 +25,12 @@ namespace Assets.BulletSpawner
 
         #region Public methods
 
-        public virtual void MakeShot(float angle = 0)
+        public virtual void MakeShot(float maxDistance = 1, float angle = 0)
         {
             var way = Way;
             if (Math.Abs(angle) > .001) way = Quaternion.Euler(0, 0, angle)*way; 
             var bullet = _pool.PopObject<BulletBase>();
-            bullet.InitBullet(transform.position, way);
+            bullet.InitBullet(transform.position, way, maxDistance);
         }
 
         #endregion

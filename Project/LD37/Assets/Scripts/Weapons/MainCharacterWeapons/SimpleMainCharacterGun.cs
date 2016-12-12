@@ -21,6 +21,7 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
         [Space]
         [Space]
         [SerializeField] private int _totalBullets;
+        [SerializeField] [Range(.1f, 1f)] private float _maxDistanceOfBullets;
 
         private float _lastShotTimeStamp;
 
@@ -84,12 +85,15 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
         #region Overrided methods
         
 
-        protected override void MakeShot(float angle)
+        protected override void MakeShot(float maxDistance, float angle)
         {
             if (IsBulletsRanOut && IsBulletsInHolderRanOut) return;
-            _currentBulletsInHolder--;
             _lastShotTimeStamp = Time.time;
-            base.MakeShot(RandomAngle);
+            for (var index = 0; index < _bulletPerShot; index++)
+            {
+                _currentBulletsInHolder--;
+                base.MakeShot(_maxDistanceOfBullets, RandomAngle);
+            }
             if (IsBulletsInHolderRanOut) StartCoroutine(Reload());
         }
 

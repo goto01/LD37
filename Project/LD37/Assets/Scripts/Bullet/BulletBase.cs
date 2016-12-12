@@ -13,6 +13,8 @@ namespace Assets.Scripts.Bullet
         [Space]
         [Space]
         [SerializeField] protected Vector2 _way;
+        [SerializeField] [Range(0,1f)] protected float _maxDistance;
+        [SerializeField] private Vector2 _startPosition;
 
         #endregion
 
@@ -42,8 +44,10 @@ namespace Assets.Scripts.Bullet
 
         #region Public methods
 
-        public void InitBullet(Vector2 startPos, Vector2 way)
+        public void InitBullet(Vector2 startPos, Vector2 way, float maxDistance = 1)
         {
+            _maxDistance = _circleController.CircleRadius * 2 * maxDistance;
+            _startPosition = startPos;
             var position = transform.position;
             position.x = startPos.x;
             position.y = startPos.y;
@@ -65,16 +69,19 @@ namespace Assets.Scripts.Bullet
 
         protected virtual void DestroyIfOutOfBorder()
         {
-            if (_circleController.CheckIfBulletOutOfBorder(transform))
-            {
-                _effectController.MakeSparks(transform.position);
-                gameObject.SetActive(false);
-            }
+            if (Vector2.Distance(transform.position, _startPosition) > _maxDistance) DestroySelf();
+            if (_circleController.CheckIfBulletOutOfBorder(transform)) DestroySelf();
         }
 
         #endregion
 
         #region Private methods
+
+        private void DestroySelf()
+        {
+            _effectController.MakeSparks(transform.position);
+            gameObject.SetActive(false);
+        }
 
         private void CheckForColision()
         {
