@@ -22,17 +22,21 @@ namespace Assets.Scripts.Ability_system.Abilities
         {
             if (_activated)
             {
+                _effectController.MakeBoom(_mainCharacter.transform.position);
                 _effectController.Shake();
                 StartCoroutine(Refresh());
                 _mainCharacter.transform.position += (Vector3)_actualSpeed;
                 if (_circleController.CheckIfObjectOutOfBorder(_mainCharacter.transform))
                 {
+                    _mainCharacter.ShowDamage();
+                    _mainCharacter.StopFly();
                     _activated = false;
                     _mainCharacter.Angle = _circleController.GetAngle(_mainCharacter.transform.position);
                     _bullet.gameObject.SetActive(true);
                     _bullet.InitBullet(_mainCharacter.transform.position, Vector2.zero, 1);
                     _mainCharacter.CharacterStop = false;
                     StartCoroutine(DisableBullet());
+                    _effectController.MakeBoom(_mainCharacter.transform.position);
                 }
             }
         }
@@ -43,7 +47,7 @@ namespace Assets.Scripts.Ability_system.Abilities
 
         protected override void Activate()
         {
-            _mainCharacter.ShowDamage();
+            _mainCharacter.BeginFly();
             _mainCharacter.CharacterStop = true;
             _actualSpeed = _movementController.GetWayToPointer(_mainCharacter.transform.position).normalized * _speed;
         }

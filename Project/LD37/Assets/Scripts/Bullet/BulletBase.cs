@@ -89,7 +89,6 @@ namespace Assets.Scripts.Bullet
                 var enemy = hit.collider.GetComponent<SimpleEnemy>();
                 enemy.MakeDamage();
                 enemy.Push(_way);
-                Debug.Log(enemy.name);
                 gameObject.SetActive(false);
                 _effectController.MakeSparks(hit.point);
             }

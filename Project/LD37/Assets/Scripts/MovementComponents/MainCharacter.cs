@@ -8,6 +8,8 @@ namespace Assets.Scripts.MovementComponents
         #region Fields
 
         private const string DamageTrigger = "Damage";
+        private const string FlyTrigger = "Fly";
+        private const string StopFlyTrigger = "StopFly";
 
         #endregion
 
@@ -37,12 +39,16 @@ namespace Assets.Scripts.MovementComponents
 
         #endregion
 
-        #region Private methods
+        #region Public methods
 
-        private void PushBack()
+        public void BeginFly()
         {
-            if (transform.localScale.x < 0) _angle += _levelConfigurationController.MainCharacterAngleThrow;
-            else _angle -= _levelConfigurationController.MainCharacterAngleThrow;
+            _animator.SetTrigger(FlyTrigger);
+        }
+
+        public void StopFly()
+        {
+            _animator.SetTrigger(StopFlyTrigger);
         }
 
         public void ShowDamage()
@@ -55,6 +61,16 @@ namespace Assets.Scripts.MovementComponents
         {
             _levelConfigurationController.MakeDamageForMainCharacter();
             ShowDamage();
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private void PushBack()
+        {
+            if (transform.localScale.x < 0) _angle += _levelConfigurationController.MainCharacterAngleThrow;
+            else _angle -= _levelConfigurationController.MainCharacterAngleThrow;
         }
 
         #endregion

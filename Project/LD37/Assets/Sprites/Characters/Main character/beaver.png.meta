@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a44f6db04d49dff45aee7d729274f30d
-timeCreated: 1481480924
+timeCreated: 1481567676
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,19 @@ TextureImporter:
     21300014: beaver_7
     21300016: beaver_8
     21300018: beaver_9
+    21300020: beaver_10
+    21300022: beaver_11
+    21300024: beaver_12
+    21300026: beaver_13
+    21300028: beaver_14
+    21300030: beaver_15
+    21300032: beaver_16
+    21300034: beaver_17
+    21300036: beaver_18
+    21300038: beaver_19
+    21300040: beaver_20
+    21300042: beaver_21
+    21300044: beaver_22
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -64,7 +77,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 24
+        y: 72
         width: 24
         height: 24
       alignment: 0
@@ -75,7 +88,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 24
+        y: 72
         width: 24
         height: 24
       alignment: 0
@@ -86,7 +99,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 24
+        y: 72
         width: 24
         height: 24
       alignment: 0
@@ -97,7 +110,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 72
-        y: 24
+        y: 72
         width: 24
         height: 24
       alignment: 0
@@ -108,7 +121,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 48
         width: 23
         height: 23
       alignment: 9
@@ -119,7 +132,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 23
-        y: 0
+        y: 48
         width: 24
         height: 23
       alignment: 0
@@ -130,7 +143,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 47
-        y: 0
+        y: 48
         width: 24
         height: 23
       alignment: 0
@@ -141,7 +154,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 71
-        y: 0
+        y: 48
         width: 24
         height: 23
       alignment: 0
@@ -152,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 95
-        y: 0
+        y: 48
         width: 22
         height: 23
       alignment: 0
@@ -162,10 +175,153 @@ TextureImporter:
     - name: beaver_9
       rect:
         serializedVersion: 2
-        x: 119
+        x: 117
+        y: 48
+        width: 26
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5018334, y: 0.4792754}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 23
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_11
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 23
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_12
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 23
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_13
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 23
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_14
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 24
-        height: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_15
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_16
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_17
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_19
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_21
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: beaver_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 24
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
