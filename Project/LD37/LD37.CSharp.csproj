@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\Ability system\Abilities\AbilityBase.cs" />
     <Compile Include="Assets\Scripts\Ability system\Abilities\FlyAbility.cs" />
     <Compile Include="Assets\Scripts\Ability system\Abilities\RicochetAbility.cs" />
+    <Compile Include="Assets\Scripts\Ability system\Abilities\SnemiesSlyAbility.cs" />
     <Compile Include="Assets\Scripts\Ability system\Abilities\TailAbility.cs" />
     <Compile Include="Assets\Scripts\Ability system\AbilitiesSystemHandler.cs" />
     <Compile Include="Assets\Scripts\Ability system\AbilityPreview.cs" />
@@ -103,11 +104,15 @@
     <Compile Include="Assets\Scripts\DisplayFPS.cs" />
     <Compile Include="Assets\Scripts\EnemiesSpawners\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Circle transform components\SimpleCircleControlComponent.cs" />
+    <Compile Include="Assets\Scripts\MovementComponents\Dam.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Enemies\SimpleEnemy.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\MainCharacter.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\MovementComponent.cs" />
     <Compile Include="Assets\Scripts\OWCCursorRenderer\OWCCursor.cs" />
     <Compile Include="Assets\Scripts\OWCCursorRenderer\OWCCursorRenderer.cs" />
+    <Compile Include="Assets\Scripts\PickUpItems\AmoPickUp.cs" />
+    <Compile Include="Assets\Scripts\PickUpItems\BasePIckUpItem.cs" />
+    <Compile Include="Assets\Scripts\PickUpItems\HealthPickUp.cs" />
     <Compile Include="Assets\Scripts\Weapons\BaseWeapon.cs" />
     <Compile Include="Assets\Scripts\Weapons\MainCharacterWeapons\SimpleMainCharacterGun.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponHandler\CharacterWeaponHandler.cs" />

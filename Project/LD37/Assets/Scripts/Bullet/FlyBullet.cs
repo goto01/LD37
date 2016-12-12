@@ -24,6 +24,7 @@ namespace Assets.Scripts.Bullet
 
         protected virtual void OnTriggerStay2D(Collider2D collider)
         {
+            if (collider.tag != SimpleEnemy.Tag) return;
             var enemy = collider.GetComponent<SimpleEnemy>();
             enemy.MakeDamage();
             enemy.MakeDamage();

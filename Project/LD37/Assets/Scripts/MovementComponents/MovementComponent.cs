@@ -11,7 +11,7 @@ namespace Assets.Scripts.MovementComponents
 
         [Space]
         [Space]
-        [SerializeField] private float _speed;
+        [SerializeField] protected float _speed;
         [SerializeField] [Range(0,2)] private float _speedDelta = 1;
         [SerializeField] protected float _radiusOffset;
         [SerializeField] protected float _angle;

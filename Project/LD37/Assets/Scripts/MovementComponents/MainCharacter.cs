@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Controllers;
+using Assets.Scripts.MovementComponents.Enemies;
 using UnityEngine;
 
 namespace Assets.Scripts.MovementComponents
@@ -34,6 +35,7 @@ namespace Assets.Scripts.MovementComponents
         
         protected virtual void OnTriggerEnter2D(Collider2D collider2D)
         {
+            if (collider2D.tag != SimpleEnemy.Tag) return;
             PushBack();
             Damage();
         }

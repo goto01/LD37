@@ -61,5 +61,10 @@ namespace Assets.Scripts.Weapons.WeaponHandler
         }
 
         #endregion
+
+        public void IncBullets()
+        {
+            _weapons.ForEach(x=>x.IncBullets());
+        }
     }
 }

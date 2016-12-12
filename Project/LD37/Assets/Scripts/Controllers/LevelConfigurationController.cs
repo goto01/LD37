@@ -1,4 +1,6 @@
 ﻿using System;
+using Assets.Scripts.Core.Pull;
+using Assets.Scripts.PickUpItems;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -16,6 +18,11 @@ namespace Assets.Scripts.Controllers
         [Space]
         [SerializeField] [Range(1, 30)] private int _characterHealth;
         [SerializeField] [Range(1, 30)] private int _currentCharacterHealth;
+        [Space]
+        [SerializeField] [Range(0, 1)] private float _enemiesSpeedDelta;
+        [Space]
+        [SerializeField] private PortablePool _hpPickUps;
+        [SerializeField] private PortablePool _amoPickUps;
 
         #endregion
 
@@ -37,6 +44,12 @@ namespace Assets.Scripts.Controllers
             private set { _currentCharacterHealth = value; }
         }
 
+        public float EnemiesSpeedDelta
+        {
+            get { return _enemiesSpeedDelta; }
+            set { _enemiesSpeedDelta = value; }
+        }
+
         #endregion
 
         #region Events
@@ -56,9 +69,25 @@ namespace Assets.Scripts.Controllers
 
         #region Public methods
 
+        public void SpawnHP(Vector2 pos)
+        {
+            _hpPickUps.PopObject<HealthPickUp>().Init(pos);
+        }
+        
+        public void SpawnAmo(Vector2 pos)
+        {
+            _amoPickUps.PopObject<AmoPickUp>().Init(pos);
+        }
+
         public void MakeDamageForMainCharacter(int damage = 1)
         {
             CurrentCharacterHealth -= damage;
+            HealthChanged(this, EventArgs.Empty);
+        }
+
+        public void AddHealth(int health)
+        {
+            _currentCharacterHealth =Mathf.Clamp(_currentCharacterHealth + health, 0, _characterHealth);
             HealthChanged(this, EventArgs.Empty);
         }
 

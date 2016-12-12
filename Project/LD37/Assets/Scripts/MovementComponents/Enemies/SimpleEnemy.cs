@@ -14,14 +14,17 @@ namespace Assets.Scripts.MovementComponents.Enemies
         #region Fields
 
         private const string DamageTrigger = "Damage";
+        public const string Tag = "Enemy";
 
         [Space]
         [Space]
         [SerializeField] private int _health;
         [SerializeField] private int _currentHealth;
         [Space]
-        [SerializeField]
-        private Way _way;
+        [SerializeField] private bool _hpSpawn;
+        [SerializeField] private bool _amoSpawn;
+        [Space]
+        [SerializeField] private Way _way;
 
         #endregion
 
@@ -55,7 +58,10 @@ namespace Assets.Scripts.MovementComponents.Enemies
 
         protected override void HandleMovement()
         {
+            var speedT = _speed;
+            _speed *= _levelConfigurationController.EnemiesSpeedDelta;
             Translate((int)_way);
+            _speed = speedT;
         }
 
         #endregion
@@ -88,6 +94,8 @@ namespace Assets.Scripts.MovementComponents.Enemies
 
         private void Die()
         {
+            if (_amoSpawn) _levelConfigurationController.SpawnAmo(transform.position);
+            if (_hpSpawn) _levelConfigurationController.SpawnHP(transform.position);
             _effectController.MakeBoom(transform.position);
             gameObject.SetActive(false);
         }

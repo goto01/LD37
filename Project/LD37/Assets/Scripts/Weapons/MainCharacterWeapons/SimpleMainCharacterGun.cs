@@ -20,8 +20,10 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
         [SerializeField] private bool _reloading;
         [Space]
         [Space]
+        [SerializeField] private bool _isInfinite;
         [SerializeField] private int _totalBullets;
         [SerializeField] [Range(.1f, 1f)] private float _maxDistanceOfBullets;
+        [SerializeField] [Range(10, 100)] private int _bulletInc;
 
         private float _lastShotTimeStamp;
 
@@ -43,7 +45,11 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
 
         public bool IsBulletsInHolderRanOut { get { return _currentBulletsInHolder <= 0; } }
 
-        public int TotalBullet { get { return _totalBullets; } }
+        public int TotalBullet { get
+        {
+            if (_isInfinite) _totalBullets = 999-_currentBulletsInHolder;
+            return _totalBullets;
+        } }
 
         public int TotalBulletWithInHolder { get { return _totalBullets + _currentBulletsInHolder; } }
 
@@ -69,6 +75,12 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
             ResetBullets();
         }
 
+        protected override void FixedUpdate()
+        {
+            if (_isInfinite) _totalBullets = 999 - _currentBulletsInHolder;
+            base.FixedUpdate();
+        }
+
 #if UNITY_EDITOR
 
         protected virtual void OnDrawGizmos()
@@ -82,8 +94,17 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
 
         #endregion
 
+        #region Public methods
+
+        public void IncBullets()
+        {
+            _totalBullets += _bulletInc;
+        }
+
+        #endregion
+
         #region Overrided methods
-        
+
 
         protected override void MakeShot(float maxDistance, float angle)
         {
