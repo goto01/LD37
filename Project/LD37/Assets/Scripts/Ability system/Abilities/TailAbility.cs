@@ -10,7 +10,8 @@ namespace Assets.Scripts.Ability_system.Abilities
         #region Fields
 
         [SerializeField] private MainCharacter _mainCharacter;
-        [SerializeField] private BulletBase _tailBullet;
+        [SerializeField] private BulletBase _tailBulletRight;
+        [SerializeField] private BulletBase _tailBulletLeft;
 
         #endregion
 
@@ -19,20 +20,9 @@ namespace Assets.Scripts.Ability_system.Abilities
         protected override void Activate()
         {
             _mainCharacter.ShowTailPunch();
-            _tailBullet.gameObject.SetActive(true);
-            StartCoroutine(DeactivateBullet());
+            _tailBulletRight.gameObject.SetActive(true);
+            _tailBulletLeft.gameObject.SetActive(true);
             StartCoroutine(Refresh());
-        }
-
-        #endregion
-
-        #region Private methods
-
-        private IEnumerator DeactivateBullet()
-        {
-            yield return new WaitForSeconds(.11f);
-            _tailBullet.gameObject.SetActive(false);
-            _effectController.MakeBoom(_tailBullet.transform.position);
         }
 
         #endregion

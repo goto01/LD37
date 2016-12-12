@@ -26,6 +26,8 @@ namespace Assets.Scripts.Bullet
         {
             var enemy = collider.GetComponent<SimpleEnemy>();
             enemy.MakeDamage();
+            enemy.MakeDamage();
+            enemy.MakeDamage();
             enemy.Push(_way);
             _effectController.MakeSparks(enemy.transform.position);
         }
