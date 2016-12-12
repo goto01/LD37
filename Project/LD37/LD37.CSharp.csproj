@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.3.5f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -81,8 +83,10 @@
     <Compile Include="Assets\Scripts\Controllers\EffectController.cs" />
     <Compile Include="Assets\Scripts\Controllers\LevelConfigurationController.cs" />
     <Compile Include="Assets\Scripts\Controllers\MovementController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\TimeController.cs" />
     <Compile Include="Assets\Scripts\Core\Bars\BulletsBar.cs" />
     <Compile Include="Assets\Scripts\Core\Bars\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Core\Bars\TimeBar.cs" />
     <Compile Include="Assets\Scripts\Core\CustomMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Depended\MouseRotatedComponent.cs" />
     <Compile Include="Assets\Scripts\Core\Depended\PositionDependedComponent.cs" />

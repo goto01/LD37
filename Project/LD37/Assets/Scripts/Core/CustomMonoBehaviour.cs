@@ -12,6 +12,7 @@ namespace Assets.Scripts.Core
         [SerializeField] protected MovementController _movementController;
         [SerializeField] protected CircleController _circleController;
         [SerializeField] protected EffectController _effectController;
+        [SerializeField] protected TimeController _timeController;
 
         #endregion
     }
