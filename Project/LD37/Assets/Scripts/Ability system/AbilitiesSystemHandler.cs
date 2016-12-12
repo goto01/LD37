@@ -38,7 +38,6 @@ namespace Assets.Scripts.Ability_system
             if (delta == 0) return;
             CurrentAbility.Unselect();
             _currentAbilityIndex += delta;
-            Debug.Log(_currentAbilityIndex);
             _currentAbilityIndex %= _abilities.Count;
             if (_currentAbilityIndex < 0) _currentAbilityIndex = _abilities.Count - 1;
             CurrentAbility.Select();

@@ -11,6 +11,7 @@ namespace Assets.Scripts.Ability_system.Abilities
         [Space]
         [Space]
         [SerializeField] [Range(.01f, 10)] private float _refreshTime;
+        [SerializeField] [Range(.01f, 10)] private float _currentRefreshTime;
         [SerializeField] private bool _refreshing;
         [Space]
         [Space]
@@ -21,11 +22,20 @@ namespace Assets.Scripts.Ability_system.Abilities
 
         #region Properties
 
-        private bool IsActivated { get { return _selected && !_refreshing && _movementController.CheckAbilityEvent(); } } 
+        public bool IsActivated { get { return _selected && !_refreshing && _movementController.CheckAbilityEvent(); } } 
+
+        public bool Selected { get { return _selected; } }
+
+        public float RefreshLerpDelta { get { return Mathf.InverseLerp(0, _refreshTime, _currentRefreshTime); } }
 
         #endregion
 
         #region Unity events
+
+        protected virtual void Start()
+        {
+            _currentRefreshTime = _refreshTime;
+        }
 
         protected virtual void Update()
         {
@@ -58,8 +68,14 @@ namespace Assets.Scripts.Ability_system.Abilities
 
         protected IEnumerator Refresh()
         {
+            Debug.Log("REFRESH");
             _refreshing = true;
-            yield return new WaitForSeconds(_refreshTime);
+            _currentRefreshTime = 0;
+            while (_currentRefreshTime < _refreshTime)
+            {
+                _currentRefreshTime += Time.deltaTime;
+                yield return null;
+            }
             _refreshing = false;
         }
 

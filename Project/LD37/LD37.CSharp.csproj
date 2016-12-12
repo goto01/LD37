@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.3.5f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -76,10 +74,11 @@
     <Compile Include="Assets\PixelPerfect\Scripts\Internal\PixelPerfectObject.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectCamera.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectSprite.cs" />
-    <Compile Include="Assets\Scripts\Ability system\AbilitiesSystemHandler.cs" />
     <Compile Include="Assets\Scripts\Ability system\Abilities\AbilityBase.cs" />
     <Compile Include="Assets\Scripts\Ability system\Abilities\FlyAbility.cs" />
     <Compile Include="Assets\Scripts\Ability system\Abilities\TailAbility.cs" />
+    <Compile Include="Assets\Scripts\Ability system\AbilitiesSystemHandler.cs" />
+    <Compile Include="Assets\Scripts\Ability system\AbilityPreview.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletBase.cs" />
     <Compile Include="Assets\Scripts\Bullet\FlyBullet.cs" />
     <Compile Include="Assets\Scripts\Bullet\SimpleBullet.cs" />
@@ -119,8 +118,8 @@
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
     <None Include="Assets\Shaders\Bar shader.shader" />
     <None Include="Assets\Shaders\ColorReplaceShader.shader" />
+    <None Include="Assets\Shaders\ProgressShader.shader" />
     <None Include="Assets\Shaders\SimpleTransitionShader.shader" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

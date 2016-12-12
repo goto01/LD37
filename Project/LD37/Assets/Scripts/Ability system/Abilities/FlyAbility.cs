@@ -24,7 +24,6 @@ namespace Assets.Scripts.Ability_system.Abilities
             {
                 _effectController.MakeBoom(_mainCharacter.transform.position);
                 _effectController.Shake();
-                StartCoroutine(Refresh());
                 _mainCharacter.transform.position += (Vector3)_actualSpeed;
                 if (_circleController.CheckIfObjectOutOfBorder(_mainCharacter.transform))
                 {
@@ -47,6 +46,7 @@ namespace Assets.Scripts.Ability_system.Abilities
 
         protected override void Activate()
         {
+            StartCoroutine(Refresh());
             _mainCharacter.BeginFly();
             _mainCharacter.CharacterStop = true;
             _actualSpeed = _movementController.GetWayToPointer(_mainCharacter.transform.position).normalized * _speed;
