@@ -45,11 +45,16 @@ namespace Assets.Scripts.MovementComponents
             else _angle -= _levelConfigurationController.MainCharacterAngleThrow;
         }
 
-        private void Damage()
+        public void ShowDamage()
         {
-            _levelConfigurationController.MakeDamageForMainCharacter();
             _animator.SetTrigger(DamageTrigger);
             _effectController.Shake();
+        }
+
+        public void Damage()
+        {
+            _levelConfigurationController.MakeDamageForMainCharacter();
+            ShowDamage();
         }
 
         #endregion

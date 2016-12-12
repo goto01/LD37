@@ -44,6 +44,23 @@ namespace Assets.Scripts.Controllers
             return new Vector2(_origin.x + Mathf.Cos(angle)* radius, _origin.y + Mathf.Sin(angle)* radius);
         }
 
+        public float GetAngle(Vector2 pos)
+        {
+            var minDistance = Vector2.Distance(pos, GetCoordsByAngle(0));
+            var resultAngle  = 0f;
+            for (var angle = 0f; angle < Mathf.PI*2; angle += .01f)
+            {
+                var tempPos = GetCoordsByAngle(angle);
+                var distance = Vector2.Distance(tempPos, pos);
+                if (minDistance > distance)
+                {
+                    minDistance = distance;
+                    resultAngle = angle;
+                }
+            }
+            return resultAngle;
+        }
+
         public bool CheckIfObjectOutOfBorder(Transform transform)
         {
             if (Vector2.Distance(_origin, transform.position) > _circleRadius) return true;

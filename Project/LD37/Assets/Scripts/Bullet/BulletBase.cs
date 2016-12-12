@@ -19,9 +19,7 @@ namespace Assets.Scripts.Bullet
         #endregion
 
         #region Properties
-
-        public Vector2 SparklPosition { get { return transform.GetChild(0).position; } }
-
+        
         protected abstract Vector2 Offset { get; }
 
         #endregion
@@ -83,7 +81,7 @@ namespace Assets.Scripts.Bullet
             gameObject.SetActive(false);
         }
 
-        private void CheckForColision()
+        protected virtual void CheckForColision()
         {
             var hit = Physics2D.Raycast(transform.position, _way, Offset.magnitude, _levelConfigurationController._bulletsLayerMask);
             if (hit.collider != null)
@@ -91,6 +89,7 @@ namespace Assets.Scripts.Bullet
                 var enemy = hit.collider.GetComponent<SimpleEnemy>();
                 enemy.MakeDamage();
                 enemy.Push(_way);
+                Debug.Log(enemy.name);
                 gameObject.SetActive(false);
                 _effectController.MakeSparks(hit.point);
             }

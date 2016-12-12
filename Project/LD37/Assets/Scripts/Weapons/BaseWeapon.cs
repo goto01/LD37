@@ -32,7 +32,7 @@ namespace Assets.Scripts.Weapons
 
         protected virtual void MakeShot(float maxDistance = 1, float angle = 0)
         {
-            _spawner.MakeShot(maxDistance, angle);
+            _spawner.MakeShot(default(Vector2), maxDistance, angle);
         }
 
         #endregion

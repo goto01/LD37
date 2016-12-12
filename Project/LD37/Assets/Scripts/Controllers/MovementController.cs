@@ -61,6 +61,11 @@ namespace Assets.Scripts.Controllers
             return Input.GetMouseButton(0);
         }
 
+        public bool CheckAbilityEvent()
+        {
+            return Input.GetMouseButton(1);
+        }
+
         public int GetScroll()
         {
             return Math.Sign(Input.GetAxis("Mouse ScrollWheel"));

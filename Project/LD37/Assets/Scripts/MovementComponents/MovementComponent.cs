@@ -21,6 +21,7 @@ namespace Assets.Scripts.MovementComponents
         [Space]
         //used by animator
         [SerializeField] protected bool _stoped;
+        [SerializeField] protected bool _characterStop;
 
         private Vector2 _prevPoint;
 
@@ -37,6 +38,12 @@ namespace Assets.Scripts.MovementComponents
         public Vector2 WayForward { get { return ((Vector2)transform.position - _prevPoint).normalized; } }
 
         public Vector2 WayBack { get { return ((Vector2)transform.position + _prevPoint).normalized; } }
+
+        public bool CharacterStop
+        {
+            get { return _characterStop; }
+            set { _characterStop = value; }
+        }
 
         #endregion
 
@@ -58,7 +65,7 @@ namespace Assets.Scripts.MovementComponents
         
         protected void Translate(int delta)
         {
-            if (_stoped) return;
+            if (_stoped || _characterStop) return;
             var sign = Mathf.Sign(delta);
             _angle += Speed*Mathf.Sign(sign);
             var scale = transform.localScale;
@@ -72,6 +79,7 @@ namespace Assets.Scripts.MovementComponents
 
         private void UpdatePosition()
         {
+            if (_characterStop) return;
             var position = transform.position;
             var newPosition = _circleController.GetCoordsByAngle(_angle, _radiusOffset);
             position.x = newPosition.x;

@@ -70,12 +70,16 @@
   <ItemGroup>
     <Compile Include="Assets\BulletSpawner\BulletSpawner.cs" />
     <Compile Include="Assets\BulletSpawner\MainCharacter\SimpleMainCharacterBulletSpawner.cs" />
+    <Compile Include="Assets\BulletSpawner\SimpleBulletSpawner.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\Internal\PixelPerfect.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\Internal\PixelPerfectHSBColor.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\Internal\PixelPerfectObject.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectCamera.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectSprite.cs" />
+    <Compile Include="Assets\Scripts\Ability system\Abilities\AbilityBase.cs" />
+    <Compile Include="Assets\Scripts\Ability system\Abilities\FlyAbility.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletBase.cs" />
+    <Compile Include="Assets\Scripts\Bullet\FlyBullet.cs" />
     <Compile Include="Assets\Scripts\Bullet\SimpleBullet.cs" />
     <Compile Include="Assets\Scripts\Controllers\AnalyticsController.cs" />
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
@@ -115,5 +119,6 @@
     <None Include="Assets\Shaders\ColorReplaceShader.shader" />
     <None Include="Assets\Shaders\SimpleTransitionShader.shader" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
