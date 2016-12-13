@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.MovementComponents
 {
-    class Dam : CustomMonoBehaviour
+    internal class Dam : CustomMonoBehaviour
     {
         #region Fields
 
@@ -14,7 +14,9 @@ namespace Assets.Scripts.MovementComponents
 
         #endregion
 
-        #region Unity events
+        public int CurrentHealth {get { return _currentHealth; } }
+
+    #region Unity events
 
         protected virtual void OnTriggerStay2D(Collider2D collider)
         {

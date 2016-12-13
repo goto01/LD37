@@ -63,7 +63,7 @@ namespace Assets.Scripts.MovementComponents
 
         protected abstract void HandleMovement();
         
-        protected void Translate(int delta)
+        protected virtual void Translate(int delta)
         {
             if (_stoped || _characterStop) return;
             var sign = Mathf.Sign(delta);
@@ -77,7 +77,7 @@ namespace Assets.Scripts.MovementComponents
 
         #region Private methods
 
-        private void UpdatePosition()
+        protected virtual void UpdatePosition()
         {
             if (_characterStop) return;
             var position = transform.position;
