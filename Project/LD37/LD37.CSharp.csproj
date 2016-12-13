@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>WebGL:20</UnityBuildTarget>
     <UnityVersion>5.3.5f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -91,6 +93,11 @@
     <Compile Include="Assets\Scripts\Controllers\GameOverController.cs" />
     <Compile Include="Assets\Scripts\Controllers\LevelConfigurationController.cs" />
     <Compile Include="Assets\Scripts\Controllers\MovementController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\SpawnSystem\SpawnController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\SpawnSystem\Spawner\SpawnerInfo.cs" />
+    <Compile Include="Assets\Scripts\Controllers\SpawnSystem\Spawner\Wave.cs" />
+    <Compile Include="Assets\Scripts\Controllers\SpawnSystem\Spawner\WaveEnemyItem.cs" />
+    <Compile Include="Assets\Scripts\Controllers\SpawnSystem\Spawner\WaveInfo.cs" />
     <Compile Include="Assets\Scripts\Controllers\SwitchScene.cs" />
     <Compile Include="Assets\Scripts\Controllers\TimeController.cs" />
     <Compile Include="Assets\Scripts\Core\Bars\BulletsBar.cs" />
@@ -105,6 +112,7 @@
     <Compile Include="Assets\Scripts\Core\Pull\PortablePool.cs" />
     <Compile Include="Assets\Scripts\DisplayFPS.cs" />
     <Compile Include="Assets\Scripts\EnemiesSpawners\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\EnemiesSpawners\EnemySpawnerComponent.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Circle transform components\SimpleCircleControlComponent.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Dam.cs" />
     <Compile Include="Assets\Scripts\MovementComponents\Enemies\FlyEnemy.cs" />
@@ -130,5 +138,6 @@
     <None Include="Assets\Shaders\ProgressShader.shader" />
     <None Include="Assets\Shaders\SimpleTransitionShader.shader" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
