@@ -51,11 +51,11 @@
     "_waveInfos": [
         {
             "_delay": 0.0,
-            "_waveId": "KT_1"
+            "_waveId": "KT_0"
         },
         {
             "_delay": 10.0,
-            "_waveId": "KT_2"
+            "_waveId": "KT_1"
         }
     ]
 }

@@ -1,11 +1,16 @@
 ﻿using System;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Assets.Scripts.Controllers
 {
     public class CircleController : BaseController
     {
         #region Fields
+
+        private const int IndexPosition = 20;
 
         [Space]
         [SerializeField] private float _circleRadius;
@@ -24,20 +29,39 @@ namespace Assets.Scripts.Controllers
 
 #if UNITY_EDITOR
 
-        protected virtual void OnDrawGizmos()
-        {
-            Gizmos.color = new Color(0, 1, 0, .3f);
-            Gizmos.DrawSphere(_origin, _circleRadius);
-            Gizmos.color = new Color(0, 1, 0, .5f);
-            Gizmos.DrawSphere(_origin, .1f);
-            Gizmos.color = Color.white;
-        }
+        //protected virtual void OnDrawGizmos()
+        //{
+        //    Gizmos.color = new Color(0, 1, 0, .3f);
+        //    Gizmos.DrawSphere(_origin, _circleRadius);
+        //    Gizmos.color = new Color(0, 1, 0, .5f);
+        //    Gizmos.DrawSphere(_origin, .1f);
+        //    Gizmos.color = Color.white;
+
+        //    const float delta = 1 / 20f;
+        //    for (var index = 0; index < 20; index++)
+        //    {
+        //        Gizmos.DrawLine(_origin, GetCoordsByPositionIndex(index));
+        //        Handles.Label(GetCoordsByPositionIndex(index), index.ToString(), EditorStyles.boldLabel);
+        //    }
+        //}
 
 #endif
 
         #endregion
 
         #region Public methods
+
+        public float GetAngleByPositionIndex(int posIndex)
+        {
+            posIndex = Mathf.Clamp(posIndex, 0, IndexPosition - 1);
+            return (float)(Math.PI*2f*posIndex/IndexPosition);
+        }
+
+        public Vector2 GetCoordsByPositionIndex(int posIndex)
+        {
+            posIndex = Mathf.Clamp(posIndex, 0, IndexPosition-1);
+            return GetCoordsByAngle(GetAngleByPositionIndex(posIndex));
+        }
 
         public Vector2 GetCoordsByAngle(float angle, float radiusOffset = 0)
         {

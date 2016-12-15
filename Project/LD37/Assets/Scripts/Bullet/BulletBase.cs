@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Core;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Core;
 using Assets.Scripts.MovementComponents.Enemies;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace Assets.Scripts.Bullet
         [SerializeField] protected Vector2 _way;
         [SerializeField] [Range(0,1f)] protected float _maxDistance;
         [SerializeField] private Vector2 _startPosition;
+        [SerializeField] private List<GameObject> _demagedObjects; 
 
         #endregion
 
@@ -25,6 +27,11 @@ namespace Assets.Scripts.Bullet
         #endregion
 
         #region Unity events
+
+        protected virtual void OnEnable()
+        {
+            _demagedObjects.Clear();
+        }
 
         protected virtual void FixedUpdate()
         {
@@ -86,10 +93,19 @@ namespace Assets.Scripts.Bullet
             if (hit.collider != null)
             {
                 var enemy = hit.collider.GetComponent<SimpleEnemy>();
-                enemy.MakeDamage();
+                MakeDamage(enemy);
                 enemy.Push(_way);
-                gameObject.SetActive(false);
+                if (!_effectController.Recochet) gameObject.SetActive(false);
                 _effectController.MakeSparks(hit.point);
+            }
+        }
+
+        private void MakeDamage(SimpleEnemy enemy)
+        {
+            if (!_demagedObjects.Contains(enemy.gameObject))
+            {
+                enemy.MakeDamage();
+                _demagedObjects.Add(enemy.gameObject);
             }
         }
 

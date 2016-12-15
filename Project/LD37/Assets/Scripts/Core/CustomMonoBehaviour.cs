@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Controllers;
+using Assets.Scripts.Controllers.SpawnSystem;
 using UnityEngine;
 
 namespace Assets.Scripts.Core
@@ -13,6 +14,7 @@ namespace Assets.Scripts.Core
         [SerializeField] protected CircleController _circleController;
         [SerializeField] protected EffectController _effectController;
         [SerializeField] protected TimeController _timeController;
+        [SerializeField] protected SpawnController _SpawnController;
 
         #endregion
     }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.MovementComponents.Enemies
 {
@@ -44,7 +45,9 @@ namespace Assets.Scripts.MovementComponents.Enemies
 
         protected virtual void OnEnable()
         {
+            _SpawnController.EnemiesDead += SpawnControllerOnEnemiesDead;
             _currentHealth = _health;
+            UpdatePosition();
         }
 
         #endregion
@@ -86,6 +89,11 @@ namespace Assets.Scripts.MovementComponents.Enemies
         #endregion
 
         #region Private methods
+        
+        private void SpawnControllerOnEnemiesDead(object sender, EventArgs eventArgs)
+        {
+            DieInstantly();
+        }
 
         private void UpdateAnimatorDamage()
         {
@@ -97,6 +105,12 @@ namespace Assets.Scripts.MovementComponents.Enemies
             if (_amoSpawn) _levelConfigurationController.SpawnAmo(transform.position);
             if (_hpSpawn) _levelConfigurationController.SpawnHP(transform.position);
             _effectController.MakeBoom(transform.position);
+            DieInstantly();
+        }
+
+        private void DieInstantly()
+        {
+            _SpawnController.EnemiesDead -= SpawnControllerOnEnemiesDead;
             gameObject.SetActive(false);
         }
 

@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using Assets.Scripts.Controllers.SpawnSystem.Spawner;
 using Assets.Scripts.EnemiesSpawners;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Controllers.SpawnSystem
 {
-    class SpawnController : BaseController
+    public class SpawnController : BaseController
     {
         #region Fields
 
-        const string Path = "Resources/wavesconf.json";
+        const string Path = "Resources/";
 
         [Space]
         [Space]
@@ -29,12 +33,25 @@ namespace Assets.Scripts.Controllers.SpawnSystem
         [SerializeField] private int _currentEnemyIndex;
         [Space]
         [SerializeField] private SpawnerInfo _spawner;
+        [Space]
+        [Space]
+        [SerializeField] private Text _text;
+        [SerializeField] private Dropdown _dropdown;
+
+        private List<string> _files;
+        private Coroutine _spawningCoroutine;
 
         #endregion
-
+        
         #region Properties
 
         private float WaveDuration { get { return Time.time - _currentWaveTimeStamp; } }
+
+        #endregion
+
+        #region Events
+
+        public event EventHandler EnemiesDead;
 
         #endregion
 
@@ -43,9 +60,9 @@ namespace Assets.Scripts.Controllers.SpawnSystem
         protected virtual void Awake()
         {
             LoadSpawnerInfo();
-            StartCoroutine(StartSpawning());
+            //StartCoroutine(StartSpawning());
         }
-
+        
         //protected virtual void OnDisable()
         //{
         //    var json = JsonUtility.ToJson(_spawner, true);
@@ -63,12 +80,15 @@ namespace Assets.Scripts.Controllers.SpawnSystem
 
         private IEnumerator StartSpawning()
         {
+            UpdateTextInfo();
+            _waveInfoIndex = 0;
             _curentWaveInfo = _spawner.GetWaveInfoByIndex(_waveInfoIndex);
             while (true)
             {
                 yield return StartCoroutine(StartWave());
                 _waveInfoIndex++;
                 _curentWaveInfo = _spawner.GetWaveInfoByIndex(_waveInfoIndex);
+                UpdateTextInfo();
                 yield return new WaitForSeconds(_curentWaveInfo.Delay);
             }
         }
@@ -108,15 +128,54 @@ namespace Assets.Scripts.Controllers.SpawnSystem
 
         private void LoadSpawnerInfo()
         {
-            var text = File.ReadAllText(Path);
             try
             {
+                _files = Directory.GetFiles(Path, "*.json").ToList();
+                _dropdown.options = new List<Dropdown.OptionData>();
+                _dropdown.AddOptions(_files);
+                DropDownChanged();
+            }
+            catch (Exception e)
+            {
+                _text.text = "YOU HAVE PROBLEMS IN THE DIRECTORY,\n TRY TO FIX, OR WRITE TO KIRILL";
+            }
+        }
+
+        private void UpdateTextInfo()
+        {
+            _text.text = string.Format("Current WaveInfo index : {0}\nCurrent wave id : {1}", _waveInfoIndex,
+                _curentWave.Id);
+        }
+
+        private void DropDownChanged()
+        {
+            try
+            {
+                var text = File.ReadAllText(_dropdown.options[_dropdown.value].text);
                 _spawner = JsonUtility.FromJson<SpawnerInfo>(text);
+                _text.text = "FILE PARSED SUCCESSFULLY, YOU CAN BEGIN\n";
+                _text.text += string.Format("Waveinfo number: {0}", _spawner.WaveInfosCount);
             }
             catch (ArgumentException e)
             {
-                Debug.Log(e.Message);
+                _text.text = "YOU HAVE PROBLEMS IN YOUR JSON FILE,\n TRY TO FIX, OR WRITE TO KIRILL";
             }
+        }
+
+        public void BeginSelected()
+        {
+            StartCoroutine(StartSpawning());
+        }
+
+        public void Refresh()
+        {
+            LoadSpawnerInfo();
+        }
+
+        public void KillAllEnemies()
+        {
+            var handler = EnemiesDead;
+            if (handler!=null) handler(this, EventArgs.Empty);
         }
 
         #endregion

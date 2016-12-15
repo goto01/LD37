@@ -25,7 +25,7 @@ namespace Assets.Scripts.Controllers.SpawnSystem.Spawner
 
         public WaveInfo GetWaveInfoByIndex(int index)
         {
-            index = Mathf.Clamp(index, 0, _waves.Count - 1);
+            index = Mathf.Clamp(index, 0, _waveInfos.Count - 1);
             return _waveInfos[index];
         }
 
