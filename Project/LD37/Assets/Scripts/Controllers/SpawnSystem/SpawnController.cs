@@ -59,8 +59,12 @@ namespace Assets.Scripts.Controllers.SpawnSystem
 
         protected virtual void Awake()
         {
+#if UNITY_WEBGL
+            StartCoroutine(LoadSpawnerInfo());
+#elif UNITY_STANDALONE_WIN
             LoadSpawnerInfo();
-            //StartCoroutine(StartSpawning());
+            StartCoroutine(StartSpawning());
+#endif
         }
         
         //protected virtual void OnDisable()
@@ -74,9 +78,9 @@ namespace Assets.Scripts.Controllers.SpawnSystem
         //    stream.Close();
         //}
 
-        #endregion
+#endregion
 
-        #region Private methods
+#region Private methods
 
         private IEnumerator StartSpawning()
         {
@@ -126,8 +130,20 @@ namespace Assets.Scripts.Controllers.SpawnSystem
             return _spawner.GetWaveById(id);
         }
 
-        private void LoadSpawnerInfo()
+
+
+#if UNITY_WEBGL
+        private IEnumerator LoadSpawnerInfo()
         {
+            var url = Application.dataPath + @"/Configuration/wavesconf.json";
+            var request = new WWW(url);
+            yield return request;
+            _spawner = JsonUtility.FromJson<SpawnerInfo>(request.text);
+            StartCoroutine(StartSpawning());
+        }
+#elif UNITY_STANDALONE_WIN
+        private void LoadSpawnerInfo(){
+
             try
             {
                 _files = Directory.GetFiles(Path, "*.json").ToList();
@@ -140,6 +156,7 @@ namespace Assets.Scripts.Controllers.SpawnSystem
                 _text.text = "YOU HAVE PROBLEMS IN THE DIRECTORY,\n TRY TO FIX, OR WRITE TO KIRILL";
             }
         }
+#endif
 
         private void UpdateTextInfo()
         {
@@ -178,6 +195,6 @@ namespace Assets.Scripts.Controllers.SpawnSystem
             if (handler!=null) handler(this, EventArgs.Empty);
         }
 
-        #endregion
+#endregion
     }
 }

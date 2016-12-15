@@ -26,18 +26,18 @@ namespace Assets.Scripts.Ability_system
 
         protected virtual void Update()
         {
-            SwitchAbility(_movementController.GetAbilitySwitchDelta());
+            SwitchAbility(_movementController.GetAbilityIndex());
         }
 
         #endregion
 
         #region Private methods
 
-        private void SwitchAbility(int delta)
+        private void SwitchAbility(int index)
         {
-            if (delta == 0) return;
+            if (index < 0) return;
             CurrentAbility.Unselect();
-            _currentAbilityIndex += delta;
+            _currentAbilityIndex = index;
             _currentAbilityIndex %= _abilities.Count;
             if (_currentAbilityIndex < 0) _currentAbilityIndex = _abilities.Count - 1;
             CurrentAbility.Select();

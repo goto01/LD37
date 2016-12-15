@@ -36,6 +36,13 @@ namespace Assets.Scripts.Controllers
             {KeyCode.Alpha3, 2 },
             {KeyCode.Alpha4, 3 },
         }; 
+        readonly IDictionary<KeyCode, int> _abilities = new Dictionary<KeyCode, int>()
+        {
+            {KeyCode.Q, 0 },
+            {KeyCode.W, 1 },
+            {KeyCode.E, 2 },
+            {KeyCode.R, 3 },
+        }; 
 
         #endregion
 
@@ -88,6 +95,12 @@ namespace Assets.Scripts.Controllers
         {
             if (Input.GetKeyDown(KeyCode.W)) return -1;
             return Input.GetKeyDown(KeyCode.S) ? 1 : 0;
+        }
+
+        public int GetAbilityIndex()
+        {
+            foreach (var keyPair in _abilities) if (Input.GetKeyDown(keyPair.Key)) return keyPair.Value;
+            return -1;
         }
 
         private Vector2 _point;
