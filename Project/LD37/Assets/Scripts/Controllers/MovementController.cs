@@ -29,6 +29,13 @@ namespace Assets.Scripts.Controllers
         [SerializeField] private List<ControlInfo> _controls;
 
         private IDictionary<Control, KeyCode> _keys;
+        readonly IDictionary<KeyCode, int> _weapons = new Dictionary<KeyCode, int>()
+        {
+            {KeyCode.Alpha1, 0 },
+            {KeyCode.Alpha2, 1 },
+            {KeyCode.Alpha3, 2 },
+            {KeyCode.Alpha4, 3 },
+        }; 
 
         #endregion
 
@@ -69,6 +76,12 @@ namespace Assets.Scripts.Controllers
         public int GetScroll()
         {
             return Math.Sign(Input.GetAxis("Mouse ScrollWheel"));
+        }
+
+        public int GetWeaponIndex()
+        {
+            foreach (var keyPair in _weapons) if (Input.GetKeyDown(keyPair.Key)) return keyPair.Value;
+            return -1;
         }
 
         public int GetAbilitySwitchDelta()
