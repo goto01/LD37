@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Analytics;
-using Debug = UnityEngine.Debug;
 
 namespace Assets.Scripts.Controllers
 {
@@ -10,7 +8,9 @@ namespace Assets.Scripts.Controllers
     {
         #region Fields
 
-        private string EnemiesKilled = "Enemies killed";
+        private const string EnemiesKilled = "Enemies killed";
+        private const string WaveInfoMessage = "Completed wave";
+        private const string DebugModeMessage = "Debug mode";
 
         [SerializeField] private int _maxEnemiesKilledNumber;
         [SerializeField] private int _currentEnemiesKilledNumber;
@@ -44,8 +44,24 @@ namespace Assets.Scripts.Controllers
                 {
                     {"number", _currentEnemiesKilledNumber}
                 });
+                Debug.Log(EnemiesKilled);
                 _currentEnemiesKilledNumber = 0;
             }
+        }
+
+        public void SendWaveInfoMessage(int waveIndex)
+        {
+            Analytics.CustomEvent(WaveInfoMessage, new Dictionary<string, object>()
+            {
+                {"index", waveIndex}
+            });
+            Debug.Log(WaveInfoMessage);
+        }
+
+        public void SendDebugModeMessage()
+        {
+            Analytics.CustomEvent(DebugModeMessage, new Dictionary<string, object>());
+            Debug.Log(DebugModeMessage);
         }
 
         #endregion

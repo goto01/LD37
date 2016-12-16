@@ -12,6 +12,7 @@ namespace Assets.Scripts.Controllers
         [SerializeField] private GameObject _timer;
         [SerializeField] private GameObject _debugWindow;
         [SerializeField] private GameObject _music;
+        [Space] [SerializeField] private AnalyticsController _analyticsController;
 
         #endregion
 
@@ -24,6 +25,7 @@ namespace Assets.Scripts.Controllers
                 _timer.SetActive(false);
                 _debugWindow.SetActive(true);
                 _music.SetActive(false);
+                _analyticsController.SendDebugModeMessage();
             }
             else
             {

@@ -19,6 +19,8 @@ namespace Assets.Scripts.Controllers.SpawnSystem
 
         [Space]
         [Space]
+        [SerializeField] private AnalyticsController _analyticsController;
+        [Space]
         [SerializeField] private EnemySpawnerComponent _spawnerComponent;
         [Space]
         [SerializeField] private Wave _curentWave;
@@ -46,6 +48,16 @@ namespace Assets.Scripts.Controllers.SpawnSystem
         #region Properties
 
         private float WaveDuration { get { return Time.time - _currentWaveTimeStamp; } }
+
+        private int WaveInfoIndex
+        {
+            get { return _waveInfoIndex; }
+            set
+            {
+                _waveInfoIndex = value;
+                _analyticsController.SendWaveInfoMessage(_waveInfoIndex);
+            }
+        }
 
         #endregion
 
@@ -87,12 +99,12 @@ namespace Assets.Scripts.Controllers.SpawnSystem
         {
             UpdateTextInfo();
             _waveInfoIndex = 0;
-            _curentWaveInfo = _spawner.GetWaveInfoByIndex(_waveInfoIndex);
+            _curentWaveInfo = _spawner.GetWaveInfoByIndex(WaveInfoIndex);
             while (true)
             {
                 yield return StartCoroutine(StartWave());
-                _waveInfoIndex++;
-                _curentWaveInfo = _spawner.GetWaveInfoByIndex(_waveInfoIndex);
+                WaveInfoIndex++;
+                _curentWaveInfo = _spawner.GetWaveInfoByIndex(WaveInfoIndex);
                 UpdateTextInfo();
                 yield return new WaitForSeconds(_curentWaveInfo.Delay);
             }
