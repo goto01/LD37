@@ -57,13 +57,14 @@ namespace Assets.Scripts.Controllers.SpawnSystem
 
         #region Unity events
 
-        protected virtual void Awake()
+        protected virtual void Start()
         {
 #if UNITY_WEBGL
             StartCoroutine(LoadSpawnerInfo());
             StartCoroutine(StartSpawning());
 #elif UNITY_STANDALONE_WIN
             LoadSpawnerInfo();
+            if (!PreviewController.Debug) StartCoroutine(StartSpawning());
 #endif
         }
         

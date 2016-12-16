@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngineInternal;
 
 namespace Assets.Scripts.Controllers
 {
@@ -22,9 +23,13 @@ namespace Assets.Scripts.Controllers
         [Space]
         [SerializeField] private int _nextSceneIndex;
 
+        private static bool _debug;
+
         #endregion
 
         #region Properties
+
+        public static bool Debug { get { return _debug; } }
 
         private Sprite CurrentPreviewSprite { get { return _sprites[_index]; } }
 
@@ -47,6 +52,11 @@ namespace Assets.Scripts.Controllers
 
         protected virtual void Update()
         {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                _debug = true;
+                StartCoroutine(SwitchScene());
+            }
             if (Input.GetMouseButtonDown(0)) Index++;
         }
 

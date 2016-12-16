@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Controllers\AnalyticsController.cs" />
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CircleController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\DebugController.cs" />
     <Compile Include="Assets\Scripts\Controllers\EffectController.cs" />
     <Compile Include="Assets\Scripts\Controllers\GameOverController.cs" />
     <Compile Include="Assets\Scripts\Controllers\LevelConfigurationController.cs" />
