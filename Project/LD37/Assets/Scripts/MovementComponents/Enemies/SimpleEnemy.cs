@@ -111,6 +111,7 @@ namespace Assets.Scripts.MovementComponents.Enemies
         private void DieInstantly()
         {
             _SpawnController.EnemiesDead -= SpawnControllerOnEnemiesDead;
+            _analyticsController.SendEnemyKilledMessage();
             gameObject.SetActive(false);
         }
 
