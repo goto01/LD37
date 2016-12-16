@@ -29,7 +29,7 @@ namespace Assets.Scripts.Weapons.WeaponHandler
             get { return _currentWeaponIndex; }
             set
             {
-                if (value == -1 || _currentWeaponIndex == value) return;
+                if (_currentWeaponIndex == value) return;
                 _weapons[_currentWeaponIndex].gameObject.SetActive(false);
                 _currentWeaponIndex = value;
                 _currentWeaponIndex %= _weapons.Count;
@@ -55,7 +55,9 @@ namespace Assets.Scripts.Weapons.WeaponHandler
 
         protected virtual void Update()
         {
-            CurrentWeaponIndex = _movementController.GetWeaponIndex();
+            var index = _movementController.GetWeaponIndex();
+            CurrentWeaponIndex = index==-1? CurrentWeaponIndex : index;
+            CurrentWeaponIndex -= _movementController.GetScroll();
             _cursor.SetBool(ReloadedParameter, CurrentWeapon.Reloaded);
             _cursor.SetBool(BulletRanOutParameter, CurrentWeapon.IsBulletsInHolderRanOut && CurrentWeapon.IsBulletsRanOut);
         }

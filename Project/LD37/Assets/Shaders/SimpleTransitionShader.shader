@@ -4,6 +4,8 @@
 	{
 		[PerRendererData] _MainTex 	("Sprite Texture", 2D) 				= "white" {}
 		_RenderTexture				("RenderTexture", 2D)				= "white" {}
+		_Delta						("Delta", Range(0, 1.1))			= 1
+		_DefaultColor				("Default color", Color)			= (0,0,0,1)
 	}
 
 	SubShader
@@ -61,6 +63,8 @@
 
 			sampler2D _MainTex;
 			sampler2D _RenderTexture;
+			fixed _Delta;
+			fixed4 _DefaultColor;
 			
 			fixed4 ApplyTextureWithDelta(fixed4 trueColor, sampler2D tex, float2 texcoord, float delta){
 				fixed4 color = tex2D(tex, texcoord);
@@ -70,6 +74,8 @@
 			fixed4 frag(v2f IN) : SV_Target
 			{
 				fixed4 color = tex2D(_RenderTexture, IN.texcoord);
+				fixed value = (color[0]+color[1]+color[2])/3;
+				if (value>_Delta) color.rgb = _DefaultColor.rgb;
 				color.a = 1;
 				return color;
 			}

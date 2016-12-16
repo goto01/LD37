@@ -12,16 +12,9 @@ namespace Assets.Scripts.Ability_system
         [Space]
         [Space]
         [SerializeField] private List<AbilityBase> _abilities;
-        [SerializeField] private int _currentAbilityIndex;
 
         #endregion
-
-        #region Properties
-
-        public AbilityBase CurrentAbility { get { return _abilities[_currentAbilityIndex]; } }
-
-        #endregion
-
+        
         #region Unity events
 
         protected virtual void Update()
@@ -36,11 +29,8 @@ namespace Assets.Scripts.Ability_system
         private void SwitchAbility(int index)
         {
             if (index < 0) return;
-            CurrentAbility.Unselect();
-            _currentAbilityIndex = index;
-            _currentAbilityIndex %= _abilities.Count;
-            if (_currentAbilityIndex < 0) _currentAbilityIndex = _abilities.Count - 1;
-            CurrentAbility.Select();
+            var activatedAbiluty = _movementController.GetAbilityIndex();
+            if (activatedAbiluty != -1) _abilities[activatedAbiluty].Activate();
         }
 
         #endregion

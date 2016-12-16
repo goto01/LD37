@@ -17,7 +17,7 @@ namespace Assets.Scripts.Ability_system.Abilities
 
         #region Overrided methods
 
-        protected override void Activate()
+        protected override void ActivateInstantly()
         {
             _mainCharacter.ShowTailPunch();
             _tailBulletRight.gameObject.SetActive(true);

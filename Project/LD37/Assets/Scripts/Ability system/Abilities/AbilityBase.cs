@@ -15,17 +15,14 @@ namespace Assets.Scripts.Ability_system.Abilities
         [SerializeField] private bool _refreshing;
         [Space]
         [Space]
-        [SerializeField] private bool _selected;
         [SerializeField] protected bool _activated;
 
         #endregion
 
         #region Properties
 
-        public bool IsActivated { get { return _selected && !_refreshing && _movementController.CheckAbilityEvent(); } } 
-
-        public bool Selected { get { return _selected; } }
-
+        public bool PossibleToActivate { get { return !_refreshing; } } 
+        
         public float RefreshLerpDelta { get { return Mathf.InverseLerp(0, _refreshTime, _currentRefreshTime); } }
 
         #endregion
@@ -37,34 +34,24 @@ namespace Assets.Scripts.Ability_system.Abilities
             _currentRefreshTime = _refreshTime;
         }
 
-        protected virtual void Update()
-        {
-            if (IsActivated)
-            {
-                _activated = true;
-                Activate();
-            }
-        }
-
         #endregion
 
         #region Public methods
 
-        public void Unselect()
+        public void Activate()
         {
-            _selected = false;
-        }
-
-        public void Select()
-        {
-            _selected = true;
+            if (PossibleToActivate)
+            {
+                _activated = true;
+                ActivateInstantly();
+            }
         }
 
         #endregion
 
         #region Protected methods
 
-        protected abstract void Activate();
+        protected abstract void ActivateInstantly();
 
         protected IEnumerator Refresh()
         {

@@ -8,7 +8,7 @@ namespace Assets.Scripts.Ability_system.Abilities
     {
         [SerializeField] [Range(0, 10)] private float _time;
 
-        protected override void Activate()
+        protected override void ActivateInstantly()
         {
             StartCoroutine(Refresh());
             _levelConfigurationController.EnemiesSpeedDelta = .3f;

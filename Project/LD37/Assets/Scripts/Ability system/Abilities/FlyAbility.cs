@@ -44,7 +44,7 @@ namespace Assets.Scripts.Ability_system.Abilities
 
         #region Overrided methods
 
-        protected override void Activate()
+        protected override void ActivateInstantly()
         {
             StartCoroutine(Refresh());
             _mainCharacter.BeginFly();

@@ -61,9 +61,9 @@ namespace Assets.Scripts.Controllers.SpawnSystem
         {
 #if UNITY_WEBGL
             StartCoroutine(LoadSpawnerInfo());
+            StartCoroutine(StartSpawning());
 #elif UNITY_STANDALONE_WIN
             LoadSpawnerInfo();
-            StartCoroutine(StartSpawning());
 #endif
         }
         

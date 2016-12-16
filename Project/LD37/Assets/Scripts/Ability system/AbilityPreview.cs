@@ -15,8 +15,6 @@ namespace Assets.Scripts.Ability_system
         [Space]
         [Space]
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private Sprite _idleSprite;
-        [SerializeField] private Sprite _selectedSprite;
 
         #endregion
 
@@ -25,8 +23,6 @@ namespace Assets.Scripts.Ability_system
         protected virtual void Update()
         {
             _spriteRenderer.material.SetFloat(ProgressParameter, _ability.RefreshLerpDelta);
-            if (_ability.Selected) _spriteRenderer.sprite = _selectedSprite;
-            else _spriteRenderer.sprite = _idleSprite;
         }
 
         #endregion
