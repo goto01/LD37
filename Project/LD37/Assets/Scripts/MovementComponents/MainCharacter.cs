@@ -62,6 +62,7 @@ namespace Assets.Scripts.MovementComponents
 
         public void Damage()
         {
+            _soundEffectController.PlaySound(SoundEffectController.Sound.HeroDamaged);
             _levelConfigurationController.MakeDamageForMainCharacter();
             ShowDamage();
         }

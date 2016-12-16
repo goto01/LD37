@@ -16,6 +16,8 @@ namespace Assets.Scripts.Controllers
         [Space]
         [SerializeField] private bool _recochet;
         [SerializeField] private int _recochetNumber;
+        [Space]
+        [SerializeField] private SoundEffectController _soundEffectController;
 
         private Vector3 _cameraPos;
 
@@ -51,12 +53,13 @@ namespace Assets.Scripts.Controllers
             StartCoroutine(_coroutine);
         }
 
-        public void MakeBoom(Vector2 pos)
+        public void MakeBoom(Vector2 pos, bool sound = true)
         {
             var boom = _boomsPool.PopObject();
             Vector3 newPos = pos;
             newPos.z = boom.transform.position.z;
             boom.transform.position = newPos;
+            if (sound) _soundEffectController.PlaySound(SoundEffectController.Sound.Explosion);
         }
 
         public void MakeBlackHole(Vector2 pos)

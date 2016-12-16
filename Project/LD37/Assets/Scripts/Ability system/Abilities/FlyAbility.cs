@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Assets.Scripts.Bullet;
+using Assets.Scripts.Controllers;
 using Assets.Scripts.MovementComponents;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ namespace Assets.Scripts.Ability_system.Abilities
         {
             if (_activated)
             {
-                _effectController.MakeBoom(_mainCharacter.transform.position);
+                _effectController.MakeBoom(_mainCharacter.transform.position, false);
                 _effectController.Shake();
                 _mainCharacter.transform.position += (Vector3)_actualSpeed;
                 if (_circleController.CheckIfObjectOutOfBorder(_mainCharacter.transform))
@@ -46,6 +47,7 @@ namespace Assets.Scripts.Ability_system.Abilities
 
         protected override void ActivateInstantly()
         {
+            _soundEffectController.PlaySound(SoundEffectController.Sound.FlyAbility);
             StartCoroutine(Refresh());
             _mainCharacter.BeginFly();
             _mainCharacter.CharacterStop = true;

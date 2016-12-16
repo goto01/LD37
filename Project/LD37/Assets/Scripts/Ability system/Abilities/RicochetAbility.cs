@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Assets.Scripts.Controllers;
 using UnityEngine;
 
 namespace Assets.Scripts.Ability_system.Abilities
@@ -17,6 +18,7 @@ namespace Assets.Scripts.Ability_system.Abilities
 
         protected override void ActivateInstantly()
         {
+            _soundEffectController.PlaySound(SoundEffectController.Sound.Ricochet);
             StartCoroutine(Refresh());
             _effectController.Recochet = true;
             StartCoroutine(DisableRecochet());

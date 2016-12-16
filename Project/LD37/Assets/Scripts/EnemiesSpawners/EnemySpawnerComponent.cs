@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Controllers;
 using Assets.Scripts.Core;
 using Assets.Scripts.Core.Pull;
 using Assets.Scripts.MovementComponents.Enemies;
@@ -23,6 +24,7 @@ namespace Assets.Scripts.EnemiesSpawners
             var enemy = _pools[enemyType].PopDeactivatedOject<SimpleEnemy>();
             enemy.Angle = angle;
             _effectController.MakeBlackHole(_circleController.GetCoordsByAngle(angle));
+            _soundEffectController.PlaySound(SoundEffectController.Sound.Blackhole);
             StartCoroutine(ActivateEnemy(enemy.gameObject));
         }
 

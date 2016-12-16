@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.Controllers;
 using Assets.Scripts.Core;
 using Assets.Scripts.MovementComponents.Enemies;
 using UnityEngine;
@@ -74,7 +75,11 @@ namespace Assets.Scripts.Bullet
         protected virtual void DestroyIfOutOfBorder()
         {
             if (Vector2.Distance(transform.position, _startPosition) > _maxDistance) DestroySelf();
-            if (_circleController.CheckIfBulletOutOfBorder(transform)) DestroySelf();
+            if (_circleController.CheckIfBulletOutOfBorder(transform))
+            {
+                DestroySelf();
+                //_soundEffectController.PlaySound(SoundEffectController.Sound.BulletDestroy);
+            }
         }
 
         #endregion
@@ -84,7 +89,7 @@ namespace Assets.Scripts.Bullet
         private void DestroySelf()
         {
             _effectController.MakeSparks(transform.position);
-            gameObject.SetActive(false);
+            Disable();
         }
 
         protected virtual void CheckForColision()
@@ -95,7 +100,7 @@ namespace Assets.Scripts.Bullet
                 var enemy = hit.collider.GetComponent<SimpleEnemy>();
                 MakeDamage(enemy);
                 enemy.Push(_way);
-                if (!_effectController.Recochet) gameObject.SetActive(false);
+                if (!_effectController.Recochet) Disable();
                 _effectController.MakeSparks(hit.point);
             }
         }
@@ -113,6 +118,11 @@ namespace Assets.Scripts.Bullet
         {
             float angle = Mathf.Atan2(_way.y, _way.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+
+        private void Disable()
+        {
+            gameObject.SetActive(false);
         }
 
         #endregion

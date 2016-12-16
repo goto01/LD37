@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Controllers;
+using UnityEngine;
 
 namespace Assets.Scripts.Bullet
 {
@@ -45,6 +46,7 @@ namespace Assets.Scripts.Bullet
 
         private void ChangeWay()
         {
+            _soundEffectController.PlaySound(SoundEffectController.Sound.BulletDestroy);
             _way = _circleController.GetReflectedVector(_circleController.GetCoordOnCircle(transform.position), _way);
             UpdateRotation();
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Assets.Scripts.Controllers;
 using UnityEngine;
 
 namespace Assets.Scripts.Ability_system.Abilities
@@ -10,6 +11,7 @@ namespace Assets.Scripts.Ability_system.Abilities
 
         protected override void ActivateInstantly()
         {
+            _soundEffectController.PlaySound(SoundEffectController.Sound.Slowmo);
             StartCoroutine(Refresh());
             _levelConfigurationController.EnemiesSpeedDelta = .3f;
             StartCoroutine(DisableAbility());

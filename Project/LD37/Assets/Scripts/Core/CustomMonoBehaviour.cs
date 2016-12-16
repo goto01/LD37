@@ -15,6 +15,7 @@ namespace Assets.Scripts.Core
         [SerializeField] protected EffectController _effectController;
         [SerializeField] protected TimeController _timeController;
         [SerializeField] protected SpawnController _SpawnController;
+        [SerializeField] protected SoundEffectController _soundEffectController;
 
         #endregion
     }

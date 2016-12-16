@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Assets.Scripts.Controllers;
 using UnityEngine;
 
 namespace Assets.Scripts.Weapons.MainCharacterWeapons
@@ -113,6 +114,7 @@ namespace Assets.Scripts.Weapons.MainCharacterWeapons
             for (var index = 0; index < _bulletPerShot; index++)
             {
                 _currentBulletsInHolder--;
+                _soundEffectController.PlaySound(SoundEffectController.Sound.Shoot);
                 base.MakeShot(_maxDistanceOfBullets, RandomAngle);
             }
             if (IsBulletsInHolderRanOut) StartCoroutine(Reload());
