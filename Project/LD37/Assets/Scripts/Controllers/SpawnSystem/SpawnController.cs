@@ -76,7 +76,12 @@ namespace Assets.Scripts.Controllers.SpawnSystem
             StartCoroutine(StartSpawning());
 #elif UNITY_STANDALONE_WIN
             LoadSpawnerInfo();
-            if (!PreviewController.Debug) StartCoroutine(StartSpawning());
+            if (!PreviewController.Debug)
+            {
+                var text = File.ReadAllText("Resources/wavesconf.json");
+                _spawner = JsonUtility.FromJson<SpawnerInfo>(text);
+                StartCoroutine(StartSpawning());
+            }
 #endif
         }
         
@@ -118,7 +123,14 @@ namespace Assets.Scripts.Controllers.SpawnSystem
                 var enemy = GetEnemy();
                 if (WaveDuration >= enemy.Delay)
                 {
-                    _spawnerComponent.Spawn(enemy.EnemyType, enemy.PositionIndex);
+                    try
+                    {
+                        _spawnerComponent.Spawn(enemy.EnemyType, enemy.PositionIndex);
+                    }
+                    catch (Exception)
+                    {
+                        _text.text = "ERROR!!!";
+                    }
                     _currentEnemyIndex++;
                 }
                 yield return new WaitForSeconds(_timeStep);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
 
@@ -11,6 +12,7 @@ namespace Assets.Scripts.Controllers
         private const string EnemiesKilled = "Enemies killed";
         private const string WaveInfoMessage = "Completed wave";
         private const string DebugModeMessage = "Debug mode";
+        private const string LateDebugModeMessage = "Late Debug mode";
 
         [SerializeField] private int _maxEnemiesKilledNumber;
         [SerializeField] private int _currentEnemiesKilledNumber;
@@ -62,6 +64,17 @@ namespace Assets.Scripts.Controllers
         {
             Analytics.CustomEvent(DebugModeMessage, new Dictionary<string, object>());
             Debug.Log(DebugModeMessage);
+            StartCoroutine(SendLateDebugMessage());
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private IEnumerator SendLateDebugMessage()
+        {
+            yield return new WaitForSeconds(60);
+            Analytics.CustomEvent(LateDebugModeMessage, new Dictionary<string, object>());
         }
 
         #endregion

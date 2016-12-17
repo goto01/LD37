@@ -57,7 +57,7 @@ namespace Assets.Scripts.Controllers
                 _debug = true;
                 StartCoroutine(SwitchScene());
             }
-            if (Input.GetMouseButtonDown(0)) Index++;
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) Index++;
         }
 
         #endregion

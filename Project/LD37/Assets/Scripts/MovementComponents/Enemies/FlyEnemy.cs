@@ -15,6 +15,9 @@ namespace Assets.Scripts.MovementComponents.Enemies
         protected override void OnEnable()
         {
             base.OnEnable();
+            Vector3 position = _circleController.GetCoordsByAngle(_angle);
+            position.z = transform.position.z;
+            transform.position = position;
             _watToTarget = (Destiation - (Vector2) transform.position).normalized*.01f;
         }
 

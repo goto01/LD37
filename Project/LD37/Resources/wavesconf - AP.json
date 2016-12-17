@@ -363,7 +363,7 @@
 			"_enemyType": 0,
 			"_position": 11
 		}, {
-			"_delay": 1.0,
+			"_delay": 2.0,
 			"_enemyType": 0,
 			"_position": 3
 		}, {
@@ -371,7 +371,7 @@
 			"_enemyType": 0,
 			"_position": 6
 		}, {
-			"_delay": 3.0,
+			"_delay": 4.0,
 			"_enemyType": 0,
 			"_position": 8
 		}, {
@@ -379,23 +379,23 @@
 			"_enemyType": 0,
 			"_position": 4
 		}, {
-			"_delay": 5.0,
+			"_delay": 6.0,
 			"_enemyType": 0,
 			"_position": 7
 		}, {
-			"_delay": 6.0,
+			"_delay": 7.0,
 			"_enemyType": 0,
 			"_position": 13
 		}, {
-			"_delay": 6.0,
+			"_delay": 8.0,
 			"_enemyType": 0,
 			"_position": 9
 		}, {
-			"_delay": 3.0,
+			"_delay": 4.0,
 			"_enemyType": 2,
 			"_position": 9
 		}, {
-			"_delay": 6.0,
+			"_delay": 8.0,
 			"_enemyType": 2,
 			"_position": 3
 		}]
@@ -406,47 +406,47 @@
 			"_enemyType": 0,
 			"_position": 11
 		}, {
-			"_delay": 1.0,
+			"_delay": 2.0,
 			"_enemyType": 0,
 			"_position": 8
 		}, {
-			"_delay": 2.0,
+			"_delay": 3.0,
 			"_enemyType": 0,
 			"_position": 2
 		}, {
-			"_delay": 2.0,
+			"_delay": 4.0,
 			"_enemyType": 0,
 			"_position": 7
 		}, {
-			"_delay": 3.0,
+			"_delay": 5.0,
 			"_enemyType": 0,
 			"_position": 3
 		}, {
-			"_delay": 3.0,
+			"_delay": 6.0,
 			"_enemyType": 0,
 			"_position": 6
 		}, {
-			"_delay": 4.0,
+			"_delay": 7.0,
 			"_enemyType": 0,
 			"_position": 10
 		}, {
-			"_delay": 4.0,
+			"_delay": 8.0,
 			"_enemyType": 0,
 			"_position": 12
 		}, {
-			"_delay": 1.0,
+			"_delay": 2.0,
 			"_enemyType": 2,
 			"_position": 4
 		}, {
-			"_delay": 2.0,
-			"_enemyType": 2,
-			"_position": 5
-		}, {
-			"_delay": 3.0,
-			"_enemyType": 2,
-			"_position": 5
-		}, {
 			"_delay": 4.0,
+			"_enemyType": 2,
+			"_position": 5
+		}, {
+			"_delay": 6.0,
+			"_enemyType": 2,
+			"_position": 5
+		}, {
+			"_delay": 8.0,
 			"_enemyType": 2,
 			"_position": 3
 		}]
@@ -457,47 +457,47 @@
 			"_enemyType": 0,
 			"_position": 11
 		}, {
-			"_delay": 1.0,
+			"_delay": 2.0,
 			"_enemyType": 0,
 			"_position": 3
 		}, {
-			"_delay": 1.0,
+			"_delay": 3.0,
 			"_enemyType": 0,
 			"_position": 8
 		}, {
-			"_delay": 2.0,
+			"_delay": 4.0,
 			"_enemyType": 0,
 			"_position": 7
 		}, {
-			"_delay": 2.0,
+			"_delay": 5.0,
 			"_enemyType": 0,
 			"_position": 4
 		}, {
-			"_delay": 2.0,
+			"_delay": 6.0,
 			"_enemyType": 0,
 			"_position": 9
 		}, {
-			"_delay": 3.0,
+			"_delay": 7.0,
 			"_enemyType": 0,
 			"_position": 2
 		}, {
-			"_delay": 3.0,
+			"_delay": 8.0,
 			"_enemyType": 0,
 			"_position": 1
 		}, {
-			"_delay": 3.0,
+			"_delay": 9.0,
 			"_enemyType": 0,
 			"_position": 3
 		}, {
-			"_delay": 4.0,
+			"_delay": 10.0,
 			"_enemyType": 0,
 			"_position": 9
 		}, {
-			"_delay": 4.0,
+			"_delay": 11.0,
 			"_enemyType": 0,
 			"_position": 10
 		}, {
-			"_delay": 4.0,
+			"_delay": 12.0,
 			"_enemyType": 0,
 			"_position": 14
 		}, {
@@ -505,15 +505,15 @@
 			"_enemyType": 2,
 			"_position": 8
 		}, {
-			"_delay": 2.0,
+			"_delay": 4.0,
 			"_enemyType": 2,
 			"_position": 4
 		}, {
-			"_delay": 3.0,
+			"_delay": 8.0,
 			"_enemyType": 2,
 			"_position": 7
 		}, {
-			"_delay": 4.0,
+			"_delay": 11.0,
 			"_enemyType": 2,
 			"_position": 5
 		}]
@@ -1142,148 +1142,10 @@
 	"COMMENT2": "_waveId - уникальный идентификатор волны, которая описана выше(РЕГИСТР БУКВ ДОЛЖЕН СОВПАДАТЬ), волны могут повторяться, т.е. значение _waveId можно повторять",
 
 	"_waveInfos": [{
-		"_delay": 4,
+		"_delay": 0.0,
 		"_waveId": "AP_1"
 	}, {
-		"_delay": 6,
+		"_delay": 10,
 		"_waveId": "AP_2"
-	}, {
-		"_delay": 6,
-		"_waveId": "AP_3"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_4"
-	}, {
-		"_delay": 4,
-		"_waveId": "AP_2"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_4"
-	}, {
-		"_delay": 6,
-		"_waveId": "AP_3"
-	}, {
-		"_delay": 14,
-		"_waveId": "AP_5"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_6"
-	}, {
-		"_delay": 14,
-		"_waveId": "AP_5"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_7"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_6"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_8"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_7"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_9"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_8"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_10"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_9"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_11"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_10"
-	}, {
-		"_delay": 12,
-		"_waveId": "AP_12"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_11"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_13"
-	}, {
-		"_delay": 12,
-		"_waveId": "AP_12"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_14"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_13"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_15"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_14"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_16"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_15"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_17"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_16"
-	}, {
-		"_delay": 6,
-		"_waveId": "AP_18"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_17"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_19"
-	}, {
-		"_delay": 6,
-		"_waveId": "AP_18"
-	}, {
-		"_delay": 7,
-		"_waveId": "AP_20"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_19"
-	}, {
-		"_delay": 8,
-		"_waveId": "AP_21"
-	}, {
-		"_delay": 7,
-		"_waveId": "AP_20"
-	}, {
-		"_delay": 6,
-		"_waveId": "AP_21"
-	}, {
-		"_delay": 4,
-		"_waveId": "AP_21"
-	}, {
-		"_delay": 2,
-		"_waveId": "AP_21"
-	}, {
-		"_delay": 1,
-		"_waveId": "AP_21"
-	}, {
-		"_delay": 0.0,
-		"_waveId": "AP_21"
-	}, {
-		"_delay": 0.0,
-		"_waveId": "AP_20"
-	}, {
-		"_delay": 0.0,
-		"_waveId": "AP_19"
-	}, {
-		"_delay": 0.0,
-		"_waveId": "AP_21"
 	}]
 }

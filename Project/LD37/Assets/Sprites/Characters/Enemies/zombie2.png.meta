@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 45794831ba571394f961b5971ff09f93
-timeCreated: 1481367746
+guid: e7010a748d2360d4cad2b3616fdb4701
+timeCreated: 1481937210
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: zombie1_0
-    21300002: zombie1_1
-    21300004: zombie1_2
-    21300006: zombie1_3
+    21300000: zombie2_0
+    21300002: zombie2_1
+    21300004: zombie2_2
+    21300006: zombie2_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,7 +54,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: zombie1_0
+    - name: zombie2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -65,7 +65,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: zombie1_1
+    - name: zombie2_1
       rect:
         serializedVersion: 2
         x: 24
@@ -76,7 +76,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: zombie1_2
+    - name: zombie2_2
       rect:
         serializedVersion: 2
         x: 48
@@ -87,7 +87,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: zombie1_3
+    - name: zombie2_3
       rect:
         serializedVersion: 2
         x: 72
