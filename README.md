@@ -1,6 +1,6 @@
 # LD37
 ### Screenshots
-![alt tag](http://ludumdare.com/compo/wp-content/compo2//593814/125381-shot0-1481594195.jpg-eq-900-500.jpg)
+![alt tag](https://i.gyazo.com/0604ee9b7b715d10f15c740624f6c540.gif)
 ### Game for [Ludum Dare 37](http://ludumdare.com/compo/)
 ### Theme: One Room
 ### Results
